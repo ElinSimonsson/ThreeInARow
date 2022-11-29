@@ -17,6 +17,7 @@
 		3F547F682936138A00E96825 /* ThreeInARowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547F672936138A00E96825 /* ThreeInARowTests.swift */; };
 		3F547F722936138A00E96825 /* ThreeInARowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547F712936138A00E96825 /* ThreeInARowUITests.swift */; };
 		3F547F742936138A00E96825 /* ThreeInARowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547F732936138A00E96825 /* ThreeInARowUITestsLaunchTests.swift */; };
+		3F547F812936398800E96825 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547F802936398800E96825 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		3F547F6D2936138A00E96825 /* ThreeInARowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreeInARowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F547F712936138A00E96825 /* ThreeInARowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeInARowUITests.swift; sourceTree = "<group>"; };
 		3F547F732936138A00E96825 /* ThreeInARowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeInARowUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3F547F802936398800E96825 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				3F547F5B2936138900E96825 /* LaunchScreen.storyboard */,
 				3F547F5E2936138900E96825 /* Info.plist */,
 				3F547F562936138500E96825 /* ThreeInARow.xcdatamodeld */,
+				3F547F802936398800E96825 /* Game.swift */,
 			);
 			path = ThreeInARow;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F547F582936138500E96825 /* ThreeInARow.xcdatamodeld in Sources */,
+				3F547F812936398800E96825 /* Game.swift in Sources */,
 				3F547F522936138500E96825 /* ViewController.swift in Sources */,
 				3F547F4E2936138500E96825 /* AppDelegate.swift in Sources */,
 				3F547F502936138500E96825 /* SceneDelegate.swift in Sources */,

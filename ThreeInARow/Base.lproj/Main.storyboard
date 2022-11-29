@@ -1,24 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ThreeInARow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTS-lQ-Mro">
+                                <rect key="frame" x="77" y="340" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="S7w-83-pHo" appends="YES" id="eNO-ZH-6bE"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP9-2Z-SYd">
+                                <rect key="frame" x="156" y="340" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="i5c-HW-KUJ" appends="YES" id="vZv-Sh-zax"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rip-Sb-CCC">
+                                <rect key="frame" x="235" y="340" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="KLX-MW-3zH" appends="YES" id="xaG-S0-8ts"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9V-r9-Ib9">
+                                <rect key="frame" x="77" y="419" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5nN-Uo-q16" appends="YES" id="YHK-74-uqb"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdI-IT-XcP">
+                                <rect key="frame" x="156" y="419" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DS2-W0-70z" appends="YES" id="L4S-zm-gGJ"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwE-t2-bTN">
+                                <rect key="frame" x="235" y="419" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="seA-KB-WPY" appends="YES" id="lgt-Qq-3xY"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efY-Tq-Xwa">
+                                <rect key="frame" x="77" y="498" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="wqy-hJ-weo" appends="YES" id="VEB-qX-pwF"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb4-bW-a1i">
+                                <rect key="frame" x="156" y="498" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="rcA-Be-JoH" appends="YES" id="VHx-8e-leK"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CV3-w6-ETp">
+                                <rect key="frame" x="235" y="498" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="zNy-cs-awj" appends="YES" id="OvU-ox-Vsd"/>
+                                </connections>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="boxEightLabel" destination="rb4-bW-a1i" id="JeE-J0-z6s"/>
+                        <outlet property="boxFiveLabel" destination="qdI-IT-XcP" id="DHw-ZR-Wko"/>
+                        <outlet property="boxFourLabel" destination="K9V-r9-Ib9" id="EKi-hI-QOb"/>
+                        <outlet property="boxNineLabel" destination="CV3-w6-ETp" id="DnN-WZ-dlc"/>
+                        <outlet property="boxOneLabel" destination="bTS-lQ-Mro" id="CRr-KI-dWF"/>
+                        <outlet property="boxSevenLabel" destination="efY-Tq-Xwa" id="lTF-Do-q5U"/>
+                        <outlet property="boxSixLabel" destination="cwE-t2-bTN" id="wyd-RI-0xQ"/>
+                        <outlet property="boxThreeLabel" destination="Rip-Sb-CCC" id="EqZ-26-iA8"/>
+                        <outlet property="boxTwoLabel" destination="PP9-2Z-SYd" id="sTP-pa-usE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="S7w-83-pHo" userLabel="Tap Box1 Gesture Recognizer">
+                    <connections>
+                        <action selector="BoxOneTapped:" destination="BYZ-38-t0r" id="8DF-r3-SSL"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="i5c-HW-KUJ" userLabel="Tap Box2 Gesture Recognizer">
+                    <connections>
+                        <action selector="boxTwoTapped:" destination="BYZ-38-t0r" id="SM3-EW-vjS"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="KLX-MW-3zH" userLabel="Tap Box3 Gesture Recognizer">
+                    <connections>
+                        <action selector="boxThreeTaped:" destination="BYZ-38-t0r" id="LZP-gQ-AXZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5nN-Uo-q16" userLabel="Tap Box4 Gesture Recognizer">
+                    <connections>
+                        <action selector="boxFourTapped:" destination="BYZ-38-t0r" id="2L8-wA-nZq"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="DS2-W0-70z" userLabel="Tap Box5 Gesture Recognizer">
+                    <connections>
+                        <action selector="boxFiveTapped:" destination="BYZ-38-t0r" id="qJG-wM-lHb"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="seA-KB-WPY" userLabel="Tap Box6 Gesture Recognizer">
+                    <connections>
+                        <action selector="boxSixTapped:" destination="BYZ-38-t0r" id="cB9-0O-qjM"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="wqy-hJ-weo" userLabel="Tap Box7 Gesture Recognizer">
+                    <connections>
+                        <action selector="boxSevenTapped:" destination="BYZ-38-t0r" id="Ndg-7g-KIf"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="rcA-Be-JoH" userLabel="Tap Box8 Gesture Recognizer">
+                    <connections>
+                        <action selector="boxEightTapped:" destination="BYZ-38-t0r" id="5Mu-Vc-yDq"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="zNy-cs-awj" userLabel="Tap Box9 Gesture Recognizer">
+                    <connections>
+                        <action selector="boxNineTapped:" destination="BYZ-38-t0r" id="uNN-dU-Yb2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="23.664122137404579" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
