@@ -8,19 +8,23 @@
 import UIKit
 
 class PopUpViewController: UIViewController {
-
-    
     
     @IBOutlet weak var resultLabel: UILabel!
-    var recevingData: String?
+
+    var player : Player?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let result = (recevingData ?? "")
+        let player = (player ?? nil)
         
-        resultLabel.text = result
-        
-        
+        if player != nil {
+            if let winnerName = player?.name {
+                resultLabel.text = "\(winnerName) won!"
+            }
+        } else {
+            resultLabel.text = "It´s a tie!"
+        }
+                
     }
 }

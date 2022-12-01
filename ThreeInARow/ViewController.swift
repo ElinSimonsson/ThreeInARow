@@ -10,29 +10,31 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var squareOneLabel: UILabel!
-    
     @IBOutlet weak var squareTwoLabel: UILabel!
-    
     @IBOutlet weak var playerOneScoreLabel: UILabel!
     @IBOutlet weak var playerTwoScoreLabel: UILabel!
-    
     @IBOutlet weak var squareThreeLabel: UILabel!
     @IBOutlet weak var squareFourLabel: UILabel!
     @IBOutlet weak var squareFiveLabel: UILabel!
     @IBOutlet weak var squareSixLabel: UILabel!
     @IBOutlet weak var squareSevenLabel: UILabel!
-    
     @IBOutlet weak var squareEightLabel: UILabel!
     @IBOutlet weak var squareNineLabel: UILabel!
-    
-    var playerOneWon = false
-    var playerTwoWon = false
-    
     @IBOutlet weak var playerTurnLabel: UILabel!
     
+    var playerOne : Player?
+    var playerTwo : Player?
+    var playerOneWon = false
+    var playerTwoWon = false
+    var gameIsOver = false
     
     let game = Game()
     
+    
+    
+    let playerOneName = "Player 1"
+    let playerTwoName = "Player 2"
+
     
     let playerOneSymbolCross = "X"
     let playerTwoSymbolCircle = "O"
@@ -44,22 +46,31 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        game.addPlayer(name: playerOneName, score: 0)
+        game.addPlayer(name: playerTwoName, score: 0)
+        playerOne = game.player(index: 0)
+        playerTwo = game.player(index: 1)
+        print("Antal spelare: \(game.count())")
+        print("Spelare 1: \(game.player(index: 1).name)")
+        
        initializeLayout()
     }
     
     
     func initializeLayout () {
-        playerTurnLabel.text = "Player 1´s turn"
+        if let playerOneName = playerOne?.name {
+            playerTurnLabel.text = "\(playerOneName)´s turn"
+        }
         
-        squareOneLabel.layer.borderWidth = 1.0
-        squareTwoLabel.layer.borderWidth = 1.0
-        squareThreeLabel.layer.borderWidth = 1.0
-        squareFourLabel.layer.borderWidth = 1.0
-        squareFiveLabel.layer.borderWidth = 1.0
-        squareSixLabel.layer.borderWidth = 1.0
-        squareSevenLabel.layer.borderWidth = 1.0
-        squareEightLabel.layer.borderWidth = 1.0
-        squareNineLabel.layer.borderWidth = 1.0
+        squareOneLabel.layer.borderWidth = 1.5
+        squareTwoLabel.layer.borderWidth = 1.5
+        squareThreeLabel.layer.borderWidth = 1.5
+        squareFourLabel.layer.borderWidth = 1.5
+        squareFiveLabel.layer.borderWidth = 1.5
+        squareSixLabel.layer.borderWidth = 1.5
+        squareSevenLabel.layer.borderWidth = 1.5
+        squareEightLabel.layer.borderWidth = 1.5
+        squareNineLabel.layer.borderWidth = 1.5
         
         if let uiImage = UIImage(named: "light_wood_background") {
             squareOneLabel.backgroundColor = UIColor(patternImage: uiImage)
@@ -79,11 +90,15 @@ class ViewController: UIViewController {
             if checkPlayerTurn % 2 == 0 {
                 label.textColor = UIColor.blue
                 label.text = playerOneSymbolCross
-                playerTurnLabel.text = "Player 2´s turn"
+                if let playerTwoName = playerTwo?.name {
+                    playerTurnLabel.text = "\(playerTwoName)´s turn"
+                }
             } else {
                 label.textColor = UIColor.red
                 label.text = playerTwoSymbolCircle
-                playerTurnLabel.text = "Player 1´s turn"
+                if let playerOneName = playerOne?.name {
+                    playerTurnLabel.text = "\(playerOneName)´s turn"
+                }
             }
             checkPlayerTurn += 1
         }
@@ -94,14 +109,14 @@ class ViewController: UIViewController {
         if segue.identifier == "segueToPopUp" {
             let destinationVC = segue.destination as? PopUpViewController
             if playerOneWon {
-                destinationVC?.recevingData = "Player 1 won!"
+                let playerOne = game.player(index: 0)
+                destinationVC?.player = playerOne
                 playerOneWon = false
             } else if playerTwoWon {
-                destinationVC?.recevingData = "Player 2 won!"
+                let playerTwo = game.player(index: 1)
+                destinationVC?.player = playerTwo
                 playerTwoWon = false
-            } else {
-                destinationVC?.recevingData = "It is a tie!"
-            }
+            } 
         }
     }
     
@@ -119,15 +134,19 @@ class ViewController: UIViewController {
         
         if checkPlayerOneWins {
             playerOneWon = true
+            gameIsOver = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 print("Async after 2 seconds")
                 self.performSegue(withIdentifier: "segueToPopUp", sender: self)
                 self.restartGameLayout()
+                self.gameIsOver = false
             }
-           // performSegue(withIdentifier: "segueToPopUp", sender: self)
-            
-            playerOneTotalScore += 1
-            playerOneScoreLabel.text = String (playerOneTotalScore)
+        
+            if let player1 = playerOne {
+                game.increasePlayerScore(player: player1)
+                playerOneTotalScore = game.getPlayerScore(player: player1)
+                playerOneScoreLabel.text = String(playerOneTotalScore)
+            }
         }
     }
     
@@ -137,10 +156,19 @@ class ViewController: UIViewController {
 
         if checkIfPlayer2Wins {
             playerTwoWon = true
-            performSegue(withIdentifier: "segueToPopUp", sender: self)
-            restartGameLayout()
-            playerTwoTotalScore += 1
-            playerTwoScoreLabel.text = String(playerTwoTotalScore)
+            gameIsOver = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.performSegue(withIdentifier: "segueToPopUp", sender: self)
+                self.restartGameLayout()
+                self.gameIsOver = false
+            }
+            
+            
+            if let player2 = playerTwo {
+                game.increasePlayerScore(player: player2)
+                playerTwoTotalScore = game.getPlayerScore(player: player2)
+                playerTwoScoreLabel.text = String(playerTwoTotalScore)
+            }
         }
     }
     
@@ -160,66 +188,84 @@ class ViewController: UIViewController {
     
     
     @IBAction func squareOneTapped(_ sender: UITapGestureRecognizer) {
-        boxClicked(label: squareOneLabel)
-        checkIfPlayerOneWins()
-        checkIfPlayerTwoWins()
-        checkIfAllSquareIsFilled()
+        if gameIsOver == false {
+            boxClicked(label: squareOneLabel)
+            checkIfPlayerOneWins()
+            checkIfPlayerTwoWins()
+            checkIfAllSquareIsFilled()
+        }
     }
     
     @IBAction func squareTwoTapped(_ sender: UITapGestureRecognizer) {
-        boxClicked(label: squareTwoLabel)
-        checkIfPlayerOneWins()
-        checkIfPlayerTwoWins()
-        checkIfAllSquareIsFilled()
+        if gameIsOver == false {
+            boxClicked(label: squareTwoLabel)
+            checkIfPlayerOneWins()
+            checkIfPlayerTwoWins()
+            checkIfAllSquareIsFilled()
+        }
     }
     
     @IBAction func squareThreeTapped(_ sender: UITapGestureRecognizer) {
-        boxClicked(label: squareThreeLabel)
-        checkIfPlayerOneWins()
-        checkIfPlayerTwoWins()
-        checkIfAllSquareIsFilled()
+        if gameIsOver == false {
+            boxClicked(label: squareThreeLabel)
+            checkIfPlayerOneWins()
+            checkIfPlayerTwoWins()
+            checkIfAllSquareIsFilled()
+        }
     }
     
     @IBAction func squareFourTapped(_ sender: UITapGestureRecognizer) {
-        boxClicked(label: squareFourLabel)
-        checkIfPlayerOneWins()
-        checkIfPlayerTwoWins()
-        checkIfAllSquareIsFilled()
+        if gameIsOver == false {
+            boxClicked(label: squareFourLabel)
+            checkIfPlayerOneWins()
+            checkIfPlayerTwoWins()
+            checkIfAllSquareIsFilled()
+        }
     }
     
     @IBAction func squareFiveTapped(_ sender: UITapGestureRecognizer) {
-        boxClicked(label: squareFiveLabel)
-        checkIfPlayerOneWins()
-        checkIfPlayerTwoWins()
-        checkIfAllSquareIsFilled()
+        if gameIsOver == false {
+            boxClicked(label: squareFiveLabel)
+            checkIfPlayerOneWins()
+            checkIfPlayerTwoWins()
+            checkIfAllSquareIsFilled()
+        }
     }
     
     @IBAction func squareSixTapped(_ sender: UITapGestureRecognizer) {
-        boxClicked(label: squareSixLabel)
-        checkIfPlayerOneWins()
-        checkIfPlayerTwoWins()
-        checkIfAllSquareIsFilled()
+        if gameIsOver == false {
+            boxClicked(label: squareSixLabel)
+            checkIfPlayerOneWins()
+            checkIfPlayerTwoWins()
+            checkIfAllSquareIsFilled()
+        }
     }
     
     @IBAction func squareSevenTapped(_ sender: UITapGestureRecognizer) {
-        boxClicked(label: squareSevenLabel)
-        checkIfPlayerOneWins()
-        checkIfPlayerTwoWins()
-        checkIfAllSquareIsFilled()
+        if gameIsOver == false {
+            boxClicked(label: squareSevenLabel)
+            checkIfPlayerOneWins()
+            checkIfPlayerTwoWins()
+            checkIfAllSquareIsFilled()
+        }
     }
     
     @IBAction func squareEightTapped(_ sender: UITapGestureRecognizer) {
-        boxClicked(label: squareEightLabel)
-        checkIfPlayerOneWins()
-        checkIfPlayerTwoWins()
-        checkIfAllSquareIsFilled()
+        if gameIsOver == false {
+            boxClicked(label: squareEightLabel)
+            checkIfPlayerOneWins()
+            checkIfPlayerTwoWins()
+            checkIfAllSquareIsFilled()
+        }
     }
     
     @IBAction func squareNineTapped(_ sender: UITapGestureRecognizer) {
-        boxClicked(label: squareNineLabel)
-        checkIfPlayerOneWins()
-        checkIfPlayerTwoWins()
-        checkIfAllSquareIsFilled()
+        if gameIsOver == false {
+            boxClicked(label: squareNineLabel)
+            checkIfPlayerOneWins()
+            checkIfPlayerTwoWins()
+            checkIfAllSquareIsFilled()
+        }
     }
     
     @IBAction func unwindToGameView(segue: UIStoryboardSegue){

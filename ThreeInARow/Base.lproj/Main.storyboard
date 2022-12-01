@@ -20,126 +20,16 @@
                                 <rect key="frame" x="-778" y="-1341" width="2000" height="3000"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTS-lQ-Mro">
-                                <rect key="frame" x="77" y="340" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="S7w-83-pHo" appends="YES" id="eNO-ZH-6bE"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP9-2Z-SYd">
-                                <rect key="frame" x="156" y="340" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="i5c-HW-KUJ" appends="YES" id="vZv-Sh-zax"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rip-Sb-CCC">
-                                <rect key="frame" x="235" y="340" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="KLX-MW-3zH" appends="YES" id="xaG-S0-8ts"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9V-r9-Ib9">
-                                <rect key="frame" x="77" y="419" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="5nN-Uo-q16" appends="YES" id="YHK-74-uqb"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdI-IT-XcP">
-                                <rect key="frame" x="156" y="419" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="DS2-W0-70z" appends="YES" id="L4S-zm-gGJ"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwE-t2-bTN">
-                                <rect key="frame" x="235" y="419" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="seA-KB-WPY" appends="YES" id="lgt-Qq-3xY"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efY-Tq-Xwa">
-                                <rect key="frame" x="77" y="498" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="wqy-hJ-weo" appends="YES" id="VEB-qX-pwF"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb4-bW-a1i">
-                                <rect key="frame" x="156" y="498" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="rcA-Be-JoH" appends="YES" id="VHx-8e-leK"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CV3-w6-ETp">
-                                <rect key="frame" x="235" y="498" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="zNy-cs-awj" appends="YES" id="OvU-ox-Vsd"/>
-                                </connections>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="wood_poster" translatesAutoresizingMaskIntoConstraints="NO" id="YOM-a6-AIJ">
+                                <rect key="frame" x="46" y="0.0" width="300" height="298"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="xx2-d5-wWj"/>
+                                </constraints>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="frame_picture" id="TxI-Q9-Lw6">
                                 <rect key="frame" x="18" y="551" width="356" height="301"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keQ-IN-6Us">
-                                <rect key="frame" x="102" y="712" width="50" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKS-St-SXt">
                                 <rect key="frame" x="231" y="712" width="50" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -148,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JR0-15-e8N">
-                                <rect key="frame" x="86" y="664" width="83" height="30"/>
+                                <rect key="frame" x="76" y="664" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
@@ -162,18 +52,184 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dht-SH-XAD">
-                                <rect key="frame" x="0.0" y="167" width="393" height="45"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="167" width="393" height="25.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="21"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTS-lQ-Mro">
+                                <rect key="frame" x="76.666666666666671" y="306" width="80.000000000000014" height="80"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="h0m-an-XPk"/>
+                                    <constraint firstAttribute="width" constant="80" id="mKx-Im-qIV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="S7w-83-pHo" appends="YES" id="eNO-ZH-6bE"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rip-Sb-CCC">
+                                <rect key="frame" x="236.66666666666663" y="306" width="80" height="80"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="AjC-IV-kte"/>
+                                    <constraint firstAttribute="height" constant="80" id="P4R-Tl-c6T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="KLX-MW-3zH" appends="YES" id="xaG-S0-8ts"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9V-r9-Ib9">
+                                <rect key="frame" x="76.666666666666671" y="386" width="80.000000000000014" height="80"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="bEF-8p-7XZ"/>
+                                    <constraint firstAttribute="height" constant="80" id="g4L-SO-HdI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5nN-Uo-q16" appends="YES" id="YHK-74-uqb"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwE-t2-bTN">
+                                <rect key="frame" x="236.66666666666663" y="386" width="80" height="80"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="3iv-9c-Jkf"/>
+                                    <constraint firstAttribute="width" constant="80" id="EjR-sX-Hbm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="seA-KB-WPY" appends="YES" id="lgt-Qq-3xY"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efY-Tq-Xwa">
+                                <rect key="frame" x="76.666666666666671" y="466" width="80.000000000000014" height="80"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="5Lc-rO-xJw"/>
+                                    <constraint firstAttribute="width" constant="80" id="TTd-EP-Amv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="wqy-hJ-weo" appends="YES" id="VEB-qX-pwF"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb4-bW-a1i">
+                                <rect key="frame" x="156.66666666666666" y="466" width="80" height="80"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="1i4-qM-Ocb"/>
+                                    <constraint firstAttribute="width" constant="80" id="asu-Tm-jXm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="rcA-Be-JoH" appends="YES" id="VHx-8e-leK"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CV3-w6-ETp">
+                                <rect key="frame" x="236.66666666666663" y="466" width="80" height="80"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="KON-z6-8uI"/>
+                                    <constraint firstAttribute="width" constant="80" id="QUc-hA-v9j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="zNy-cs-awj" appends="YES" id="OvU-ox-Vsd"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdI-IT-XcP">
+                                <rect key="frame" x="156.66666666666666" y="386" width="80" height="80"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="ms8-wR-fxZ"/>
+                                    <constraint firstAttribute="height" constant="80" id="zLU-zX-dIQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DS2-W0-70z" appends="YES" id="L4S-zm-gGJ"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP9-2Z-SYd">
+                                <rect key="frame" x="156.66666666666666" y="306" width="80" height="80"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="WPi-de-hHS"/>
+                                    <constraint firstAttribute="height" constant="80" id="gA4-Ul-YjB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="i5c-HW-KUJ" appends="YES" id="vZv-Sh-zax"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keQ-IN-6Us">
+                                <rect key="frame" x="91" y="712" width="50" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="CV3-w6-ETp" firstAttribute="leading" secondItem="rb4-bW-a1i" secondAttribute="trailing" id="1vY-B5-KyG"/>
+                            <constraint firstItem="CV3-w6-ETp" firstAttribute="top" secondItem="cwE-t2-bTN" secondAttribute="bottom" id="95R-nx-UMr"/>
+                            <constraint firstItem="cwE-t2-bTN" firstAttribute="leading" secondItem="qdI-IT-XcP" secondAttribute="trailing" id="C0Z-hw-aZA"/>
+                            <constraint firstItem="efY-Tq-Xwa" firstAttribute="top" secondItem="K9V-r9-Ib9" secondAttribute="bottom" id="DNi-x8-c6B"/>
                             <constraint firstItem="Dht-SH-XAD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="F7D-4u-ErO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YOM-a6-AIJ" secondAttribute="trailing" constant="47" id="JMM-bn-R9s"/>
+                            <constraint firstItem="qdI-IT-XcP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ka8-MT-s6c"/>
+                            <constraint firstItem="bTS-lQ-Mro" firstAttribute="centerX" secondItem="K9V-r9-Ib9" secondAttribute="centerX" id="Pzg-cf-MnR"/>
                             <constraint firstItem="Dht-SH-XAD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TE5-VZ-6ZV"/>
+                            <constraint firstItem="Rip-Sb-CCC" firstAttribute="centerX" secondItem="cwE-t2-bTN" secondAttribute="centerX" id="U8h-x8-OWE"/>
+                            <constraint firstItem="YOM-a6-AIJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UEn-oH-CnZ"/>
+                            <constraint firstItem="efY-Tq-Xwa" firstAttribute="top" secondItem="K9V-r9-Ib9" secondAttribute="bottom" id="VBv-10-FDs"/>
+                            <constraint firstItem="bTS-lQ-Mro" firstAttribute="baseline" secondItem="PP9-2Z-SYd" secondAttribute="baseline" id="Vfd-bm-mK1"/>
+                            <constraint firstItem="qdI-IT-XcP" firstAttribute="leading" secondItem="K9V-r9-Ib9" secondAttribute="trailing" id="YlY-RN-1o0"/>
+                            <constraint firstItem="YOM-a6-AIJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="dFp-fx-jEr"/>
+                            <constraint firstItem="rb4-bW-a1i" firstAttribute="leading" secondItem="efY-Tq-Xwa" secondAttribute="trailing" id="dTL-uO-x1Z"/>
+                            <constraint firstItem="rb4-bW-a1i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dox-6c-YwI"/>
+                            <constraint firstItem="CV3-w6-ETp" firstAttribute="top" secondItem="Rip-Sb-CCC" secondAttribute="bottom" constant="80" id="fVu-jD-40k"/>
+                            <constraint firstItem="qdI-IT-XcP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mh1-5m-fvJ"/>
+                            <constraint firstItem="qdI-IT-XcP" firstAttribute="top" secondItem="PP9-2Z-SYd" secondAttribute="bottom" id="pJf-aZ-ztC"/>
                             <constraint firstItem="Dht-SH-XAD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="108" id="qHT-Yi-ZWE"/>
+                            <constraint firstItem="bTS-lQ-Mro" firstAttribute="top" secondItem="YOM-a6-AIJ" secondAttribute="bottom" constant="8" symbolic="YES" id="syk-c4-IqX"/>
+                            <constraint firstItem="rb4-bW-a1i" firstAttribute="top" secondItem="qdI-IT-XcP" secondAttribute="bottom" id="v1Y-CM-hmw"/>
+                            <constraint firstItem="efY-Tq-Xwa" firstAttribute="top" secondItem="bTS-lQ-Mro" secondAttribute="bottom" constant="80" id="vk8-du-rcj"/>
+                            <constraint firstItem="bTS-lQ-Mro" firstAttribute="baseline" secondItem="Rip-Sb-CCC" secondAttribute="baseline" id="xVa-SK-XtY"/>
+                            <constraint firstItem="PP9-2Z-SYd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ydr-1k-pJC"/>
                         </constraints>
                     </view>
                     <connections>
@@ -189,7 +245,7 @@
                         <outlet property="squareSixLabel" destination="cwE-t2-bTN" id="JAF-nR-4xb"/>
                         <outlet property="squareThreeLabel" destination="Rip-Sb-CCC" id="JRa-5j-eBt"/>
                         <outlet property="squareTwoLabel" destination="PP9-2Z-SYd" id="x2r-eP-hXc"/>
-                        <segue destination="NHA-Zr-NbA" kind="show" identifier="segueToPopUp" id="Pem-n5-kgt"/>
+                        <segue destination="NHA-Zr-NbA" kind="showDetail" identifier="segueToPopUp" id="Lmp-gv-Kz7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -320,6 +376,7 @@
         <image name="frame_picture" width="1200" height="1200"/>
         <image name="score_square" width="1200" height="1200"/>
         <image name="wood_background" width="2000" height="3000"/>
+        <image name="wood_poster" width="1200" height="1200"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F259CB52938BA65008E80D4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F259CB42938BA65008E80D4 /* Player.swift */; };
 		3F43A7952937885800C89B44 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F43A7942937885800C89B44 /* PopUpViewController.swift */; };
 		3F547F4E2936138500E96825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547F4D2936138500E96825 /* AppDelegate.swift */; };
 		3F547F502936138500E96825 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547F4F2936138500E96825 /* SceneDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F259CB42938BA65008E80D4 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3F43A7942937885800C89B44 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		3F547F4A2936138500E96825 /* ThreeInARow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreeInARow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F547F4D2936138500E96825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				3F547F562936138500E96825 /* ThreeInARow.xcdatamodeld */,
 				3F547F802936398800E96825 /* Game.swift */,
 				3F43A7942937885800C89B44 /* PopUpViewController.swift */,
+				3F259CB42938BA65008E80D4 /* Player.swift */,
 			);
 			path = ThreeInARow;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				3F547F812936398800E96825 /* Game.swift in Sources */,
 				3F43A7952937885800C89B44 /* PopUpViewController.swift in Sources */,
 				3F547F522936138500E96825 /* ViewController.swift in Sources */,
+				3F259CB52938BA65008E80D4 /* Player.swift in Sources */,
 				3F547F4E2936138500E96825 /* AppDelegate.swift in Sources */,
 				3F547F502936138500E96825 /* SceneDelegate.swift in Sources */,
 			);
