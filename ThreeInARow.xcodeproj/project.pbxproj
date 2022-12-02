@@ -20,6 +20,7 @@
 		3F547F722936138A00E96825 /* ThreeInARowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547F712936138A00E96825 /* ThreeInARowUITests.swift */; };
 		3F547F742936138A00E96825 /* ThreeInARowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547F732936138A00E96825 /* ThreeInARowUITestsLaunchTests.swift */; };
 		3F547F812936398800E96825 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547F802936398800E96825 /* Game.swift */; };
+		3F7184182939F73600195695 /* PlayerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7184172939F73600195695 /* PlayerInformationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		3F547F712936138A00E96825 /* ThreeInARowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeInARowUITests.swift; sourceTree = "<group>"; };
 		3F547F732936138A00E96825 /* ThreeInARowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeInARowUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3F547F802936398800E96825 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		3F7184172939F73600195695 /* PlayerInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInformationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,17 +109,15 @@
 		3F547F4C2936138500E96825 /* ThreeInARow */ = {
 			isa = PBXGroup;
 			children = (
+				3F7184162939F65600195695 /* ViewControllers */,
+				3F7184152939F63A00195695 /* Model */,
 				3F547F4D2936138500E96825 /* AppDelegate.swift */,
 				3F547F4F2936138500E96825 /* SceneDelegate.swift */,
-				3F547F512936138500E96825 /* ViewController.swift */,
 				3F547F532936138500E96825 /* Main.storyboard */,
 				3F547F592936138900E96825 /* Assets.xcassets */,
 				3F547F5B2936138900E96825 /* LaunchScreen.storyboard */,
 				3F547F5E2936138900E96825 /* Info.plist */,
 				3F547F562936138500E96825 /* ThreeInARow.xcdatamodeld */,
-				3F547F802936398800E96825 /* Game.swift */,
-				3F43A7942937885800C89B44 /* PopUpViewController.swift */,
-				3F259CB42938BA65008E80D4 /* Player.swift */,
 			);
 			path = ThreeInARow;
 			sourceTree = "<group>";
@@ -137,6 +137,25 @@
 				3F547F732936138A00E96825 /* ThreeInARowUITestsLaunchTests.swift */,
 			);
 			path = ThreeInARowUITests;
+			sourceTree = "<group>";
+		};
+		3F7184152939F63A00195695 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F547F802936398800E96825 /* Game.swift */,
+				3F259CB42938BA65008E80D4 /* Player.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F7184162939F65600195695 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F547F512936138500E96825 /* ViewController.swift */,
+				3F43A7942937885800C89B44 /* PopUpViewController.swift */,
+				3F7184172939F73600195695 /* PlayerInformationViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +291,7 @@
 			files = (
 				3F547F582936138500E96825 /* ThreeInARow.xcdatamodeld in Sources */,
 				3F547F812936398800E96825 /* Game.swift in Sources */,
+				3F7184182939F73600195695 /* PlayerInformationViewController.swift in Sources */,
 				3F43A7952937885800C89B44 /* PopUpViewController.swift in Sources */,
 				3F547F522936138500E96825 /* ViewController.swift in Sources */,
 				3F259CB52938BA65008E80D4 /* Player.swift in Sources */,
