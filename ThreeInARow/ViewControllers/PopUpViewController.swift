@@ -36,9 +36,8 @@ class PopUpViewController: UIViewController {
     
     @IBAction func playAgainBtn(_ sender: UIButton) {
        playAgain = true
-        print("playAgain PopUp: \(playAgain)")
-        if let sendBackData = playAgain {
-            delegate?.passDataBack(gameIsRestarted: sendBackData)
+        if let sendBooleanBack = playAgain {
+            delegate?.passDataBack(gameIsRestarted: sendBooleanBack)
             dismiss(animated: true, completion: nil)
             self.navigationController?.popViewController(animated: true)
         }

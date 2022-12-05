@@ -35,8 +35,9 @@ class NumbersOfPlayerViewController: UIViewController {
     
 
     @IBAction func onePlayerBtn(_ sender: UIButton) {
-        //let player1 = Player(name: "Player 1", score: 0)
-        //let playerComputer = Player(name: "Computer", score: 0)
+        if game.count() > 0 {
+            game.deleteAllPlayers()
+        }
         game.addPlayer(name: "Player 1", score: 0)
         game.addPlayer(name: "Computer", score: 0)
         performSegue(withIdentifier: segueToGame, sender: self)
@@ -44,5 +45,9 @@ class NumbersOfPlayerViewController: UIViewController {
     
     @IBAction func twoPlayerBtn(_ sender: UIButton) {
         performSegue(withIdentifier: segueToPlayerInfo, sender: self)
+    }
+    
+    @IBAction func unwindToNumberOfPlayerVC (segue: UIStoryboardSegue) {
+        
     }
 }

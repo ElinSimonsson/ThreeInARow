@@ -52,6 +52,9 @@ class PlayerInformationViewController: UIViewController {
 
 
     @IBAction func playBtnPressed(_ sender: UIButton) {
+        if game.count() > 0 {
+            game.deleteAllPlayers()
+        }
         
         if playerOneNameTextField.text == "" && playerTwoNameTextField.text == "" {
             playerOneName = playerOneDefaultName

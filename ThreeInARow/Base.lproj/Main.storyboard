@@ -509,6 +509,20 @@
                                             <action selector="playAgainBtn:" destination="NHA-Zr-NbA" eventType="touchUpInside" id="IrW-XM-lAp"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeR-Zr-V18">
+                                        <rect key="frame" x="62" y="248" width="220" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="PNh-8e-IPY"/>
+                                            <constraint firstAttribute="height" constant="50" id="kFD-M7-IUx"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Menu">
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="WEt-dj-Rqw" kind="unwind" unwindAction="unwindToNumberOfPlayerVCWithSegue:" id="Tqs-3V-bMw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -519,8 +533,12 @@
                                     <constraint firstAttribute="bottom" secondItem="YbX-EE-JZJ" secondAttribute="bottom" id="QKc-Xt-DTL"/>
                                     <constraint firstItem="hQX-nZ-sx3" firstAttribute="leading" secondItem="V7c-Nb-sgn" secondAttribute="leading" constant="62" id="V0D-86-eLx"/>
                                     <constraint firstAttribute="height" constant="350" id="Wzl-Nx-GNs"/>
+                                    <constraint firstAttribute="trailing" secondItem="xeR-Zr-V18" secondAttribute="trailing" constant="68" id="agE-dj-XM7"/>
+                                    <constraint firstItem="xeR-Zr-V18" firstAttribute="leading" secondItem="V7c-Nb-sgn" secondAttribute="leading" constant="62" id="dyl-Td-WxG"/>
                                     <constraint firstAttribute="trailing" secondItem="hQX-nZ-sx3" secondAttribute="trailing" constant="62" id="h72-k7-RLB"/>
                                     <constraint firstAttribute="trailing" secondItem="eoN-Ak-Yzy" secondAttribute="trailing" constant="68" id="oMu-pu-eH7"/>
+                                    <constraint firstAttribute="bottom" secondItem="xeR-Zr-V18" secondAttribute="bottom" constant="52" id="rr2-rD-ZHh"/>
+                                    <constraint firstItem="xeR-Zr-V18" firstAttribute="top" secondItem="hQX-nZ-sx3" secondAttribute="bottom" constant="8" id="syy-qv-Hh5"/>
                                     <constraint firstItem="YbX-EE-JZJ" firstAttribute="leading" secondItem="V7c-Nb-sgn" secondAttribute="leading" id="u9I-lh-U6F"/>
                                     <constraint firstAttribute="trailing" secondItem="YbX-EE-JZJ" secondAttribute="trailing" id="yGH-Ih-UIi"/>
                                     <constraint firstItem="eoN-Ak-Yzy" firstAttribute="top" secondItem="V7c-Nb-sgn" secondAttribute="top" constant="92" id="zBH-yh-Nb2"/>
@@ -541,12 +559,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AT0-2M-5dV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="WEt-dj-Rqw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="765.64885496183206" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Kfb-54-JNi"/>
+        <segue reference="YfD-dr-qWl"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="frame_picture" width="1200" height="1200"/>
