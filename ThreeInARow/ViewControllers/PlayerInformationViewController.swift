@@ -34,6 +34,7 @@ class PlayerInformationViewController: UIViewController {
             let playerTwo = game.player(index: 1)
             destinationVC?.playerOne = playerOne
             destinationVC?.playerTwo = playerTwo
+            destinationVC?.playingTowardComputer = false
 //            if segue.identifier == segueToPopUp {
 //                let destinationVC = segue.destination as? PopUpViewController
 //                if playerOneWon {

@@ -3,6 +3,109 @@ import UIKit
 
 class Game {
     private var players = [Player]()
+    private var availableSquares = [Square]()
+    private var listOfClickedSquare = [Square]()
+    
+    var checkAlreadyContainsList = false
+    
+    
+    func clearAvailableSquare () {
+        availableSquares.removeAll()
+    }
+    
+    func clearClickedSquares () {
+        listOfClickedSquare.removeAll()
+    }
+    
+    func countAvailableSquare () -> Int {
+        return availableSquares.count
+    }
+    
+//    func addClickedSquare (numberOfSquare: Int) {
+//        let clickedSquare = Square(numberOfSquare: numberOfSquare)
+//        listOfClickedSquare.append(clickedSquare)
+//    }
+    
+    
+    func randomNumberOfAvailableSquare () -> Int {
+        
+        let countAvailableSquare = availableSquares.count
+        let random = Int.random(in: 0..<countAvailableSquare )
+        //print(random)
+        let square = availableSquares[random]
+        return square.numberOfSquare
+    }
+    
+    func testFindAvailable () -> Int {
+        if availableSquares.count == listOfClickedSquare.count {
+            listOfClickedSquare.removeAll()
+            return 0
+        }
+        var square : Square?
+        let countAvailableSquares = availableSquares.count
+        repeat {
+            let random = Int.random(in: 0..<countAvailableSquares)
+            square = availableSquares[random]
+            if let square = square {
+                checkAlreadyContainsList = checkContainsListOfClickedSquare(square: square)
+            }
+        } while checkAlreadyContainsList
+        if let newSquare = square {
+            listOfClickedSquare.append(newSquare)
+            //print("added \(newSquare.numberOfSquare)")
+        }
+        return square?.numberOfSquare ?? 0
+    }
+    
+    func getAllSquare () {
+//        for square in availableSquares {
+//            print("tillgänglig \(square.numberOfSquare)")
+//        }
+        
+        for square in listOfClickedSquare {
+            print("redan använt \(square.numberOfSquare)")
+        }
+    }
+    
+    func findAvailableSquare () -> Int {
+        if availableSquares.count == listOfClickedSquare.count {
+            return 0
+        }
+        var square : Square?
+        
+        repeat {
+            let countAvailableSquares = availableSquares.count
+            let random = Int.random(in: 0..<countAvailableSquares)
+            square = availableSquares[random]
+            if let square = square {
+              checkAlreadyContainsList = checkContainsListOfClickedSquare(square: square)
+            }
+        } while checkAlreadyContainsList
+        return square?.numberOfSquare ?? 0
+            
+    }
+    
+    func checkContainsListOfClickedSquare (square: Square ) -> Bool {
+        for clickedSquares in listOfClickedSquare {
+            if clickedSquares.numberOfSquare == square.numberOfSquare {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func addAvailableSquare (numberOfSquare: Int) {
+       
+        let square = Square(numberOfSquare: numberOfSquare)
+            availableSquares.append(square)
+    }
+    
+    func addClickedSquare (numberOfSquare: Int) {
+        let clickedSquare = Square(numberOfSquare: numberOfSquare)
+        listOfClickedSquare.append(clickedSquare)
+        print("added \(clickedSquare.numberOfSquare)")
+    }
+    
     
     func addPlayer (name: String, score: Int) {
         let player = Player(name: name, score: score)
@@ -15,10 +118,6 @@ class Game {
     
     func player(index: Int) -> Player {
         return players[index]
-    }
-    
-    func count () -> Int {
-        return players.count
     }
     
     

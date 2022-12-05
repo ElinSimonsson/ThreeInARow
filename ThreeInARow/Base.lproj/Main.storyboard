@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fC8-yV-Ic2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Yx-Qw-ddK">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -8,10 +8,57 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Numbers Of Player View Controller-->
+        <scene sceneID="7Rv-74-NSN">
+            <objects>
+                <viewController id="7Yx-Qw-ddK" customClass="NumbersOfPlayerViewController" customModule="ThreeInARow" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c3C-Ke-L7S">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="two_player" translatesAutoresizingMaskIntoConstraints="NO" id="MsN-vM-cTr">
+                                <rect key="frame" x="232" y="311" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="one_player" translatesAutoresizingMaskIntoConstraints="NO" id="DEG-CZ-DXy">
+                                <rect key="frame" x="69" y="311" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXZ-hv-e0e">
+                                <rect key="frame" x="230" y="427" width="106" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Two player"/>
+                                <connections>
+                                    <action selector="twoPlayerBtn:" destination="7Yx-Qw-ddK" eventType="touchUpInside" id="uhl-TH-9aA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9BC-Hc-f2D">
+                                <rect key="frame" x="66" y="427" width="107" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="One player"/>
+                                <connections>
+                                    <action selector="onePlayerBtn:" destination="7Yx-Qw-ddK" eventType="touchUpInside" id="KRx-B1-tLv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SuY-S4-qdd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <segue destination="fC8-yV-Ic2" kind="show" identifier="twoPlayerSegueToPlayerInfo" id="5Hf-Up-Zob"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="onePlayerSegueToGame" id="YfD-dr-qWl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hL2-mq-EcG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1550" y="172"/>
+        </scene>
         <!--Player Information View Controller-->
         <scene sceneID="9hE-Tu-PTJ">
             <objects>
-                <viewController id="fC8-yV-Ic2" customClass="PlayerInformationViewController" customModule="ThreeInARow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="fC8-yV-Ic2" customClass="PlayerInformationViewController" customModule="ThreeInARow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LwE-eV-A2b">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +132,7 @@
                         <viewLayoutGuide key="safeArea" id="Rp1-oQ-Ukb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="PB3-fP-E52"/>
                     <connections>
                         <outlet property="playerOneNameTextField" destination="zcm-2k-ZK8" id="qGD-us-hsT"/>
                         <outlet property="playerTwoNameTextField" destination="wFN-2K-hNC" id="2Ml-6v-OJ6"/>
@@ -93,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckc-Vj-s8h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-799.23664122137404" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="-795" y="-396"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -426,20 +474,20 @@
         <!--Pop Up View Controller-->
         <scene sceneID="OnW-JN-5dt">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="NHA-Zr-NbA" customClass="PopUpViewController" customModule="ThreeInARow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NHA-Zr-NbA" customClass="PopUpViewController" customModule="ThreeInARow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Cr-sQ-AOj">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7c-Nb-sgn">
-                                <rect key="frame" x="21.666666666666657" y="251" width="350" height="350"/>
+                                <rect key="frame" x="21.666666666666657" y="216.66666666666663" width="350" height="350"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="score_square" translatesAutoresizingMaskIntoConstraints="NO" id="YbX-EE-JZJ">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's a tie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoN-Ak-Yzy">
-                                        <rect key="frame" x="53" y="92" width="229" height="70"/>
+                                        <rect key="frame" x="53" y="92.000000000000028" width="229" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="cXW-lo-gwJ"/>
                                         </constraints>
@@ -448,7 +496,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQX-nZ-sx3">
-                                        <rect key="frame" x="62" y="187" width="226" height="53"/>
+                                        <rect key="frame" x="62" y="187.00000000000003" width="226" height="53"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="53" id="iHC-8l-uAf"/>
                                             <constraint firstAttribute="width" constant="226" id="sG3-06-wEl"/>
@@ -458,7 +506,7 @@
                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="WEt-dj-Rqw" kind="unwind" unwindAction="unwindToGameViewWithSegue:" id="keg-p8-f3E"/>
+                                            <action selector="playAgainBtn:" destination="NHA-Zr-NbA" eventType="touchUpInside" id="IrW-XM-lAp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -493,14 +541,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AT0-2M-5dV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="WEt-dj-Rqw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="765.64885496183206" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kfb-54-JNi"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="frame_picture" width="1200" height="1200"/>
+        <image name="one_player" width="2000" height="2000"/>
         <image name="score_square" width="1200" height="1200"/>
+        <image name="two_player" width="2271" height="2271"/>
         <image name="vs_image" width="2500" height="2500"/>
         <image name="wood_background" width="2000" height="3000"/>
         <image name="wood_poster" width="1200" height="1200"/>

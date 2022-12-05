@@ -21,6 +21,8 @@
 		3F547F742936138A00E96825 /* ThreeInARowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547F732936138A00E96825 /* ThreeInARowUITestsLaunchTests.swift */; };
 		3F547F812936398800E96825 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547F802936398800E96825 /* Game.swift */; };
 		3F7184182939F73600195695 /* PlayerInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7184172939F73600195695 /* PlayerInformationViewController.swift */; };
+		3F71841A293A1B2100195695 /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F718419293A1B2100195695 /* Square.swift */; };
+		3F71841C293DEF4900195695 /* NumbersOfPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F71841B293DEF4900195695 /* NumbersOfPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		3F547F732936138A00E96825 /* ThreeInARowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeInARowUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3F547F802936398800E96825 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3F7184172939F73600195695 /* PlayerInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInformationViewController.swift; sourceTree = "<group>"; };
+		3F718419293A1B2100195695 /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
+		3F71841B293DEF4900195695 /* NumbersOfPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersOfPlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 			children = (
 				3F547F802936398800E96825 /* Game.swift */,
 				3F259CB42938BA65008E80D4 /* Player.swift */,
+				3F718419293A1B2100195695 /* Square.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 				3F547F512936138500E96825 /* ViewController.swift */,
 				3F43A7942937885800C89B44 /* PopUpViewController.swift */,
 				3F7184172939F73600195695 /* PlayerInformationViewController.swift */,
+				3F71841B293DEF4900195695 /* NumbersOfPlayerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -294,7 +300,9 @@
 				3F7184182939F73600195695 /* PlayerInformationViewController.swift in Sources */,
 				3F43A7952937885800C89B44 /* PopUpViewController.swift in Sources */,
 				3F547F522936138500E96825 /* ViewController.swift in Sources */,
+				3F71841C293DEF4900195695 /* NumbersOfPlayerViewController.swift in Sources */,
 				3F259CB52938BA65008E80D4 /* Player.swift in Sources */,
+				3F71841A293A1B2100195695 /* Square.swift in Sources */,
 				3F547F4E2936138500E96825 /* AppDelegate.swift in Sources */,
 				3F547F502936138500E96825 /* SceneDelegate.swift in Sources */,
 			);
