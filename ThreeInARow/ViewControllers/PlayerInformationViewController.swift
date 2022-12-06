@@ -29,7 +29,7 @@ class PlayerInformationViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueToGame {
             
-            let destinationVC = segue.destination as? ViewController
+            let destinationVC = segue.destination as? GameViewController
             let playerOne = game.player(index: 0)
             let playerTwo = game.player(index: 1)
             destinationVC?.playerOne = playerOne
