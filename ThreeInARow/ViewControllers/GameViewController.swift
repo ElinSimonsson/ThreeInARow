@@ -1,40 +1,29 @@
-//
-//  ViewController.swift
-//  ThreeInARow
-//
-//  Created by Elin Simonsson on 2022-11-29.
-//
-
 import UIKit
 
 class GameViewController: UIViewController, CanReceive {
     func passDataBack(gameIsRestarted: Bool) {
         let playAgain = gameIsRestarted
-        game.clearClickedSquares()
+        game.clearClickedBoards()
         restartGameLayout()
-        player1Won = false
         playerOneWon = false
         playerTwoWon = false
         gameIsOver = false
-        computerTurn = false
+        player1Turn = true
     }
     
-    
-    @IBOutlet weak var squareOneLabel: UILabel!
-    @IBOutlet weak var squareTwoLabel: UILabel!
     @IBOutlet weak var playerOneScoreLabel: UILabel!
     @IBOutlet weak var playerTwoScoreLabel: UILabel!
-    @IBOutlet weak var squareThreeLabel: UILabel!
-    @IBOutlet weak var squareFourLabel: UILabel!
-    @IBOutlet weak var squareFiveLabel: UILabel!
-    @IBOutlet weak var squareSixLabel: UILabel!
-    @IBOutlet weak var squareSevenLabel: UILabel!
-    @IBOutlet weak var squareEightLabel: UILabel!
-    @IBOutlet weak var squareNineLabel: UILabel!
+    @IBOutlet weak var boardOneLabel: UILabel!
+    @IBOutlet weak var boardTwoLabel: UILabel!
+    @IBOutlet weak var boardThreeLabel: UILabel!
+    @IBOutlet weak var boardFourLabel: UILabel!
+    @IBOutlet weak var boardFiveLabel: UILabel!
+    @IBOutlet weak var boardSixLabel: UILabel!
+    @IBOutlet weak var boardSevenLabel: UILabel!
+    @IBOutlet weak var boardEightLabel: UILabel!
+    @IBOutlet weak var boardNineLabel: UILabel!
     @IBOutlet weak var playerTurnLabel: UILabel!
-    
     @IBOutlet weak var playerOneNameLabel: UILabel!
-    
     @IBOutlet weak var playerTwoNameLabel: UILabel!
     
     var playerOne : Player?
@@ -43,34 +32,19 @@ class GameViewController: UIViewController, CanReceive {
     var playerTwoWon = false
     var gameIsOver = false
     var playingTowardComputer = false //default
-    var computerTurn = false
-    var player1Won = false
-    
-    let game = Game()
-    
-    
-    let playerOneSymbolCross = "X"
-    let playerTwoSymbolCircle = "O"
-    var checkPlayerTurn = 0
+    var player1Turn = true
     let segueToPopUp = "segueToPopUp"
+    let game = Game()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("playingTowardCompiter: \(playingTowardComputer)")
         
         initializeLayout()
         
-        game.addSquare(numberOfSquare: 1)
-        game.addSquare(numberOfSquare: 2)
-        game.addSquare(numberOfSquare: 3)
-        game.addSquare(numberOfSquare: 4)
-        game.addSquare(numberOfSquare: 5)
-        game.addSquare(numberOfSquare: 6)
-        game.addSquare(numberOfSquare: 7)
-        game.addSquare(numberOfSquare: 8)
-        game.addSquare(numberOfSquare: 9)
-        
+        for number in 1...9{
+            game.addBoard(board: Board(numberOfBoard: number))
+        }
     }
     
     func initializeLayout () {
@@ -81,123 +55,122 @@ class GameViewController: UIViewController, CanReceive {
             playerTwoNameLabel.text = playerTwoName
         }
         
-        squareOneLabel.layer.borderWidth = 1.5
-        squareTwoLabel.layer.borderWidth = 1.5
-        squareThreeLabel.layer.borderWidth = 1.5
-        squareFourLabel.layer.borderWidth = 1.5
-        squareFiveLabel.layer.borderWidth = 1.5
-        squareSixLabel.layer.borderWidth = 1.5
-        squareSevenLabel.layer.borderWidth = 1.5
-        squareEightLabel.layer.borderWidth = 1.5
-        squareNineLabel.layer.borderWidth = 1.5
+        boardOneLabel.layer.borderWidth = 1.5
+        boardTwoLabel.layer.borderWidth = 1.5
+        boardThreeLabel.layer.borderWidth = 1.5
+        boardFourLabel.layer.borderWidth = 1.5
+        boardFiveLabel.layer.borderWidth = 1.5
+        boardSixLabel.layer.borderWidth = 1.5
+        boardSevenLabel.layer.borderWidth = 1.5
+        boardEightLabel.layer.borderWidth = 1.5
+        boardNineLabel.layer.borderWidth = 1.5
         
         if let uiImage = UIImage(named: "light_wood_background") {
-            squareOneLabel.backgroundColor = UIColor(patternImage: uiImage)
-            squareTwoLabel.backgroundColor = UIColor(patternImage: uiImage)
-            squareThreeLabel.backgroundColor = UIColor(patternImage: uiImage)
-            squareFourLabel.backgroundColor = UIColor(patternImage: uiImage)
-            squareFiveLabel.backgroundColor = UIColor(patternImage: uiImage)
-            squareSixLabel.backgroundColor = UIColor(patternImage: uiImage)
-            squareSevenLabel.backgroundColor = UIColor(patternImage: uiImage)
-            squareEightLabel.backgroundColor = UIColor(patternImage: uiImage)
-            squareNineLabel.backgroundColor = UIColor(patternImage: uiImage)
+            boardOneLabel.backgroundColor = UIColor(patternImage: uiImage)
+            boardTwoLabel.backgroundColor = UIColor(patternImage: uiImage)
+            boardThreeLabel.backgroundColor = UIColor(patternImage: uiImage)
+            boardFourLabel.backgroundColor = UIColor(patternImage: uiImage)
+            boardFiveLabel.backgroundColor = UIColor(patternImage: uiImage)
+            boardSixLabel.backgroundColor = UIColor(patternImage: uiImage)
+            boardSevenLabel.backgroundColor = UIColor(patternImage: uiImage)
+            boardEightLabel.backgroundColor = UIColor(patternImage: uiImage)
+            boardNineLabel.backgroundColor = UIColor(patternImage: uiImage)
         }
     }
     
-    func computerClickSquare () {
-        switch game.findAvailableSquare() {
+    func computerClickBoard () {
+        switch game.randomEmptyBoard() {
         case 1:
-            squareOneLabel.textColor = UIColor.red
-            squareOneLabel.text = playerTwoSymbolCircle
+            boardOneLabel.textColor = UIColor.red
+            boardOneLabel.text = playerTwo?.symbol
         case 2:
-            squareTwoLabel.textColor = UIColor.red
-            squareTwoLabel.text = playerTwoSymbolCircle
+            boardTwoLabel.textColor = UIColor.red
+            boardTwoLabel.text = playerTwo?.symbol
         case 3:
-            squareThreeLabel.textColor = UIColor.red
-            squareThreeLabel.text = playerTwoSymbolCircle
+            boardThreeLabel.textColor = UIColor.red
+            boardThreeLabel.text = playerTwo?.symbol
         case 4:
-            squareFourLabel.textColor = UIColor.red
-            squareFourLabel.text = playerTwoSymbolCircle
+            boardFourLabel.textColor = UIColor.red
+            boardFourLabel.text = playerTwo?.symbol
         case 5:
-            squareFiveLabel.textColor = UIColor.red
-            squareFiveLabel.text = playerTwoSymbolCircle
+            boardFiveLabel.textColor = UIColor.red
+            boardFiveLabel.text = playerTwo?.symbol
         case 6:
-            squareSixLabel.textColor = UIColor.red
-            squareSixLabel.text = playerTwoSymbolCircle
+            boardSixLabel.textColor = UIColor.red
+            boardSixLabel.text = playerTwo?.symbol
         case 7:
-            squareSevenLabel.textColor = UIColor.red
-            squareSevenLabel.text = playerTwoSymbolCircle
+            boardSevenLabel.textColor = UIColor.red
+            boardSevenLabel.text = playerTwo?.symbol
         case 8:
-            squareEightLabel.textColor = UIColor.red
-            squareEightLabel.text = playerTwoSymbolCircle
+            boardEightLabel.textColor = UIColor.red
+            boardEightLabel.text = playerTwo?.symbol
         case 9:
-            squareNineLabel.textColor = UIColor.red
-            squareNineLabel.text = playerTwoSymbolCircle
+            boardNineLabel.textColor = UIColor.red
+            boardNineLabel.text = playerTwo?.symbol
         default: break
         }
     }
     
-    func checkWhichThreeSquareIsInRow (symbol: String) -> Int {
-        if squareOneLabel.text == symbol && squareTwoLabel.text == symbol && squareThreeLabel.text == symbol {
+    func checkWhichThreeBoardsIsInRow (symbol: String) -> Int {
+        if boardOneLabel.text == symbol && boardTwoLabel.text == symbol && boardThreeLabel.text == symbol {
             return 123
-        } else if squareOneLabel.text == symbol && squareFourLabel.text == symbol && squareSevenLabel.text == symbol {
+        } else if boardOneLabel.text == symbol && boardFourLabel.text == symbol && boardSevenLabel.text == symbol {
             return 147
-        } else if squareOneLabel.text == symbol && squareFiveLabel.text == symbol && squareNineLabel.text == symbol {
+        } else if boardOneLabel.text == symbol && boardFiveLabel.text == symbol && boardNineLabel.text == symbol {
             return 159
-        } else if squareFourLabel.text == symbol && squareFiveLabel.text == symbol && squareSixLabel.text == symbol {
+        } else if boardFourLabel.text == symbol && boardFiveLabel.text == symbol && boardSixLabel.text == symbol {
             return 456
-        } else if squareSevenLabel.text == symbol && squareEightLabel.text == symbol && squareNineLabel.text == symbol {
+        } else if boardSevenLabel.text == symbol && boardEightLabel.text == symbol && boardNineLabel.text == symbol {
             return 789
-        } else if squareTwoLabel.text == symbol && squareFiveLabel.text == symbol && squareEightLabel.text == symbol {
+        } else if boardTwoLabel.text == symbol && boardFiveLabel.text == symbol && boardEightLabel.text == symbol {
             return 258
-        } else if squareThreeLabel.text == symbol && squareSixLabel.text == symbol && squareNineLabel.text == symbol {
+        } else if boardThreeLabel.text == symbol && boardSixLabel.text == symbol && boardNineLabel.text == symbol {
             return 369
-        } else if squareThreeLabel.text == symbol && squareFiveLabel.text == symbol && squareSevenLabel.text == symbol {
+        } else if boardThreeLabel.text == symbol && boardFiveLabel.text == symbol && boardSevenLabel.text == symbol {
             return 357
         }
         return 0
     }
     
     func setLayoutWinning (playerSymbol: String) {
-        let numbersOfSquareIsInRow = checkWhichThreeSquareIsInRow(symbol: playerSymbol)
+        let numbersOfBoardsIsInRow = checkWhichThreeBoardsIsInRow(symbol: playerSymbol)
         
-        switch numbersOfSquareIsInRow {
+        switch numbersOfBoardsIsInRow {
         case 123:
-            squareOneLabel.backgroundColor = UIColor.green
-            squareTwoLabel.backgroundColor = UIColor.green
-            squareThreeLabel.backgroundColor = UIColor.green
+            boardOneLabel.backgroundColor = UIColor.green
+            boardTwoLabel.backgroundColor = UIColor.green
+            boardThreeLabel.backgroundColor = UIColor.green
         case 147:
-            squareOneLabel.backgroundColor = UIColor.green
-            squareFourLabel.backgroundColor = UIColor.green
-            squareSevenLabel.backgroundColor = UIColor.green
+            boardOneLabel.backgroundColor = UIColor.green
+            boardFourLabel.backgroundColor = UIColor.green
+            boardSevenLabel.backgroundColor = UIColor.green
         case 159:
-            squareOneLabel.backgroundColor = UIColor.green
-            squareFiveLabel.backgroundColor = UIColor.green
-            squareNineLabel.backgroundColor = UIColor.green
+            boardOneLabel.backgroundColor = UIColor.green
+            boardFiveLabel.backgroundColor = UIColor.green
+            boardNineLabel.backgroundColor = UIColor.green
         case 456:
-            squareFourLabel.backgroundColor = UIColor.green
-            squareFiveLabel.backgroundColor = UIColor.green
-            squareSixLabel.backgroundColor = UIColor.green
+            boardFourLabel.backgroundColor = UIColor.green
+            boardFiveLabel.backgroundColor = UIColor.green
+            boardSixLabel.backgroundColor = UIColor.green
         case 789:
-            squareSevenLabel.backgroundColor = UIColor.green
-            squareEightLabel.backgroundColor = UIColor.green
-            squareNineLabel.backgroundColor = UIColor.green
+            boardSevenLabel.backgroundColor = UIColor.green
+            boardEightLabel.backgroundColor = UIColor.green
+            boardNineLabel.backgroundColor = UIColor.green
         case 258:
-            squareTwoLabel.backgroundColor = UIColor.green
-            squareFiveLabel.backgroundColor = UIColor.green
-            squareEightLabel.backgroundColor = UIColor.green
+            boardTwoLabel.backgroundColor = UIColor.green
+            boardFiveLabel.backgroundColor = UIColor.green
+            boardEightLabel.backgroundColor = UIColor.green
         case 369:
-            squareThreeLabel.backgroundColor = UIColor.green
-            squareSixLabel.backgroundColor = UIColor.green
-            squareNineLabel.backgroundColor = UIColor.green
+            boardThreeLabel.backgroundColor = UIColor.green
+            boardSixLabel.backgroundColor = UIColor.green
+            boardNineLabel.backgroundColor = UIColor.green
         case 357:
-            squareThreeLabel.backgroundColor = UIColor.green
-            squareFiveLabel.backgroundColor = UIColor.green
-            squareSevenLabel.backgroundColor = UIColor.green
+            boardThreeLabel.backgroundColor = UIColor.green
+            boardFiveLabel.backgroundColor = UIColor.green
+            boardSevenLabel.backgroundColor = UIColor.green
         default: break
         }
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueToPopUp {
@@ -210,43 +183,46 @@ class GameViewController: UIViewController, CanReceive {
                 destinationVC?.player = playerTwo
                 destinationVC?.delegate = self
                 playerTwoWon = false
+            } else {
+                destinationVC?.delegate = self
             }
         }
     }
     
     func checkIfPlayerWins () {
-        let checkIfPlayerOneWins = game.checkIfThreeRow(playerSymbol: playerOneSymbolCross, label1: squareOneLabel, label2: squareTwoLabel, label3: squareThreeLabel, label4: squareFourLabel, label5: squareFiveLabel, label6: squareSixLabel, label7: squareSevenLabel, label8: squareEightLabel, label9: squareNineLabel)
-        
-        let checkIfPlayerTwoWins = game.checkIfThreeRow(playerSymbol: playerTwoSymbolCircle, label1: squareOneLabel, label2: squareTwoLabel, label3: squareThreeLabel, label4: squareFourLabel, label5: squareFiveLabel, label6: squareSixLabel, label7: squareSevenLabel, label8: squareEightLabel, label9: squareNineLabel)
-        
-        
-        if checkIfPlayerOneWins {
-            playerOneWon = true
-            player1Won = true
-            gameIsOver = true
-            setLayoutWinning(playerSymbol: playerOneSymbolCross)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.performSegue(withIdentifier: self.segueToPopUp, sender: self)
-            }
+        if let playerOneSymbol = playerOne?.symbol, let playerTwoSymbol = playerTwo?.symbol {
+            let checkIfPlayerOneWins = game.checkIfThreeRow(playerSymbol: playerOneSymbol, label1: boardOneLabel, label2: boardTwoLabel, label3: boardThreeLabel, label4: boardFourLabel, label5: boardFiveLabel, label6: boardSixLabel, label7: boardSevenLabel, label8: boardEightLabel, label9: boardNineLabel)
             
-            if let player1 = playerOne {
-                game.increasePlayerScore(player: player1)
-                if let player1Score = playerOne?.score {
-                    playerOneScoreLabel.text = String (player1Score)
+            let checkIfPlayerTwoWins = game.checkIfThreeRow(playerSymbol: playerTwoSymbol, label1: boardOneLabel, label2: boardTwoLabel, label3: boardThreeLabel, label4: boardFourLabel, label5: boardFiveLabel, label6: boardSixLabel, label7: boardSevenLabel, label8: boardEightLabel, label9: boardNineLabel)
+            
+            if checkIfPlayerOneWins {
+                playerOneWon = true
+                gameIsOver = true
+                setLayoutWinning(playerSymbol: playerOneSymbol)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.performSegue(withIdentifier: self.segueToPopUp, sender: self)
                 }
-            }
-        } else if checkIfPlayerTwoWins {
-            playerTwoWon = true
-            gameIsOver = true
-            setLayoutWinning(playerSymbol: playerTwoSymbolCircle)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.performSegue(withIdentifier: self.segueToPopUp, sender: self)
-            }
-            
-            if let player2 = playerTwo {
-                game.increasePlayerScore(player: player2)
-                if let player2Score = playerTwo?.score {
-                    playerTwoScoreLabel.text = String (player2Score)
+                
+                if let player1 = playerOne {
+                    game.increasePlayerScore(player: player1)
+                    if let player1Score = playerOne?.score {
+                        playerOneScoreLabel.text = String (player1Score)
+                    }
+                }
+            } else if checkIfPlayerTwoWins {
+                playerTwoWon = true
+                gameIsOver = true
+                setLayoutWinning(playerSymbol: playerTwoSymbol)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.performSegue(withIdentifier: self.segueToPopUp, sender: self)
+                }
+                
+                if let player2 = playerTwo {
+                    game.increasePlayerScore(player: player2)
+                    if let player2Score = playerTwo?.score {
+                        playerTwoScoreLabel.text = String (player2Score)
+                    }
                 }
             }
         }
@@ -254,147 +230,154 @@ class GameViewController: UIViewController, CanReceive {
     
     func restartGameLayout () {
         initializeLayout()
-        checkPlayerTurn = 0
-        squareOneLabel.text = ""
-        squareTwoLabel.text = ""
-        squareThreeLabel.text = ""
-        squareFourLabel.text = ""
-        squareFiveLabel.text = ""
-        squareSixLabel.text = ""
-        squareSevenLabel.text = ""
-        squareEightLabel.text = ""
-        squareNineLabel.text = ""
+        boardOneLabel.text = ""
+        boardTwoLabel.text = ""
+        boardThreeLabel.text = ""
+        boardFourLabel.text = ""
+        boardFiveLabel.text = ""
+        boardSixLabel.text = ""
+        boardSevenLabel.text = ""
+        boardEightLabel.text = ""
+        boardNineLabel.text = ""
     }
     
-    func boxClicked (label : UILabel, numberOfSquare : Int) {
+    func delayComputerChooseBoard () {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.player1Turn = true
+            if self.gameIsOver == false {
+                self.computerClickBoard()
+                if let playerOneName = self.playerOne?.name {
+                    self.playerTurnLabel.text = "\(playerOneName)´s turn"
+                }
+                self.checkIfPlayerWins()
+                self.checkIfAllBoardsIsFilled()
+            }
+        }
+    }
+    
+    func boxClicked (label : UILabel, board: Board ) {
         if playingTowardComputer {
-            if label.text == "" {
-                if computerTurn == false {
+            if player1Turn {
+                if game.checkContainsClickedBoards(clickedBoard: board) == false {
                     label.textColor = UIColor.blue
-                    label.text = playerOneSymbolCross
+                    label.text = playerOne?.symbol
                     if let playerTwoName = playerTwo?.name {
                         playerTurnLabel.text = "\(playerTwoName)´s turn"
                     }
-                    checkPlayerTurn += 1
-                    
-                    game.addClickedSquare(numberOfSquare: numberOfSquare)
-                    computerTurn = true
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        if self.gameIsOver == false {
-                            self.computerClickSquare()
-                            
-                            self.computerTurn = false
-                            self.checkPlayerTurn += 1
-                            if let playerOneName = self.playerOne?.name {
-                                self.playerTurnLabel.text = "\(playerOneName)´s turn"
-                            }
-                            print("4, \(self.player1Won)")
-                            self.checkIfPlayerWins()
-                            self.checkIfAllSquareIsFilled()
-                        }
+                    game.addClickedBoard(board: board)
+                    player1Turn = false
+                    delayComputerChooseBoard()
+                }
+            }
+        } else {
+            if game.checkContainsClickedBoards(clickedBoard: board) == false {
+                if player1Turn {
+                    label.textColor = UIColor.blue
+                    label.text = playerOne?.symbol
+                    if let playerTwoName = playerTwo?.name {
+                        playerTurnLabel.text = "\(playerTwoName)´s turn"
                     }
+                    game.addClickedBoard(board: board)
+                    player1Turn = false
+                    
+                } else {
+                    label.textColor = UIColor.red
+                    label.text = playerTwo?.symbol
+                    if let playerOneName = playerOne?.name {
+                        playerTurnLabel.text = "\(playerOneName)´s turn"
+                    }
+                    game.addClickedBoard(board: board)
+                    player1Turn = true
                 }
             }
-        }
-        
-        if label.text != "X" && label.text != "O" && playingTowardComputer == false {
-            if checkPlayerTurn % 2 == 0 {
-                label.textColor = UIColor.blue
-                label.text = playerOneSymbolCross
-                if let playerTwoName = playerTwo?.name {
-                    playerTurnLabel.text = "\(playerTwoName)´s turn"
-                }
-            } else {
-                label.textColor = UIColor.red
-                label.text = playerTwoSymbolCircle
-                if let playerOneName = playerOne?.name {
-                    playerTurnLabel.text = "\(playerOneName)´s turn"
-                }
-            }
-            checkPlayerTurn += 1
         }
     }
     
-    func checkIfAllSquareIsFilled () {
-        if squareOneLabel.text != "" && squareTwoLabel.text != "" && squareThreeLabel.text != "" && squareFourLabel.text != "" &&
-            squareFiveLabel.text != "" && squareSixLabel.text != "" && squareSevenLabel.text != "" && squareEightLabel.text != "" &&
-            squareNineLabel.text != "" && gameIsOver == false {
+    func checkIfAllBoardsIsFilled () {
+        if game.checkIfAllBoardIsNotEmpty() && gameIsOver == false {
+            gameIsOver = true
             performSegue(withIdentifier: segueToPopUp, sender: self)
-            restartGameLayout()
         }
     }
     
-    @IBAction func squareOneTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func boardOneTapped(_ sender: UITapGestureRecognizer) {
         if gameIsOver == false {
-            boxClicked(label: squareOneLabel, numberOfSquare: 1)
+            let board1 = Board(numberOfBoard: 1)
+            boxClicked(label: boardOneLabel, board: board1)
             checkIfPlayerWins()
-            checkIfAllSquareIsFilled()
+            checkIfAllBoardsIsFilled()
         }
     }
     
-    @IBAction func squareTwoTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func boardTwoTapped(_ sender: UITapGestureRecognizer) {
         if gameIsOver == false {
-            boxClicked(label: squareTwoLabel, numberOfSquare: 2)
+            let board2 = Board(numberOfBoard: 2)
+            boxClicked(label: boardTwoLabel, board: board2)
             checkIfPlayerWins()
-            checkIfAllSquareIsFilled()
+            checkIfAllBoardsIsFilled()
         }
     }
     
-    @IBAction func squareThreeTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func boardThreeTapped(_ sender: UITapGestureRecognizer) {
         if gameIsOver == false {
-            boxClicked(label: squareThreeLabel, numberOfSquare: 3)
+            let board3 = Board(numberOfBoard: 3)
+            boxClicked(label: boardThreeLabel, board: board3)
             checkIfPlayerWins()
-            checkIfAllSquareIsFilled()
+            checkIfAllBoardsIsFilled()
         }
     }
     
-    @IBAction func squareFourTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func boardFourTapped(_ sender: UITapGestureRecognizer) {
         if gameIsOver == false {
-            boxClicked(label: squareFourLabel, numberOfSquare: 4)
+            let board4 = Board(numberOfBoard: 4)
+            boxClicked(label: boardFourLabel, board: board4)
             checkIfPlayerWins()
-            checkIfAllSquareIsFilled()
+            checkIfAllBoardsIsFilled()
         }
     }
     
-    @IBAction func squareFiveTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func boardFiveTapped(_ sender: UITapGestureRecognizer) {
         if gameIsOver == false {
-            boxClicked(label: squareFiveLabel, numberOfSquare: 5)
+            let board5 = Board(numberOfBoard: 5)
+            boxClicked(label: boardFiveLabel, board: board5)
             checkIfPlayerWins()
-            checkIfAllSquareIsFilled()
+            checkIfAllBoardsIsFilled()
         }
     }
     
-    @IBAction func squareSixTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func boardSixTapped(_ sender: UITapGestureRecognizer) {
         if gameIsOver == false {
-            boxClicked(label: squareSixLabel, numberOfSquare: 6)
+            let board6 = Board(numberOfBoard: 6)
+            boxClicked(label: boardSixLabel, board: board6)
             checkIfPlayerWins()
-            checkIfAllSquareIsFilled()
+            checkIfAllBoardsIsFilled()
         }
     }
     
-    @IBAction func squareSevenTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func boardSevenTapped(_ sender: UITapGestureRecognizer) {
         if gameIsOver == false {
-            boxClicked(label: squareSevenLabel, numberOfSquare: 7)
+            let board7 = Board(numberOfBoard: 7)
+            boxClicked(label: boardSevenLabel, board: board7)
             checkIfPlayerWins()
-            checkIfAllSquareIsFilled()
+            checkIfAllBoardsIsFilled()
         }
     }
     
-    @IBAction func squareEightTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func boardEightTapped(_ sender: UITapGestureRecognizer) {
         if gameIsOver == false {
-            boxClicked(label: squareEightLabel, numberOfSquare: 8)
+            let board8 = Board(numberOfBoard: 8)
+            boxClicked(label: boardEightLabel, board: board8)
             checkIfPlayerWins()
-            checkIfAllSquareIsFilled()
+            checkIfAllBoardsIsFilled()
         }
     }
     
-    @IBAction func squareNineTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func boardNineTapped(_ sender: UITapGestureRecognizer) {
         if gameIsOver == false {
-            boxClicked(label: squareNineLabel, numberOfSquare: 9)
+            let board9 = Board(numberOfBoard: 9)
+            boxClicked(label: boardNineLabel, board: board9)
             checkIfPlayerWins()
-            checkIfAllSquareIsFilled()
+            checkIfAllBoardsIsFilled()
         }
     }
 }
-

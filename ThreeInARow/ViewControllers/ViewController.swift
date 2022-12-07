@@ -1,5 +1,5 @@
 //
-//  NumbersOfPlayerViewController.swift
+//  ViewController.swift
 //  ThreeInARow
 //
 //  Created by Elin Simonsson on 2022-12-05.
@@ -8,6 +8,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var onePlayerLabel: UILabel!
+    
+    @IBOutlet weak var twoPlayerLabel: UILabel!
     
     let segueToPlayerInfo = "twoPlayerSegueToPlayerInfo"
     let segueToGame = "onePlayerSegueToGame"
@@ -18,7 +22,10 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        onePlayerLabel.layer.cornerRadius = 10
+        twoPlayerLabel.layer.cornerRadius = 10
+        onePlayerLabel.layer.masksToBounds = true
+        twoPlayerLabel.layer.masksToBounds = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -35,11 +42,11 @@ class ViewController: UIViewController {
     
     @IBAction func handleTapOnePlayer(_ sender: UITapGestureRecognizer) {
        
-        if game.count() > 0 {
+        if game.countPlayers() > 0 {
                     game.deleteAllPlayers()
                 }
-                game.addPlayer(name: "Player 1", score: 0)
-                game.addPlayer(name: "Computer", score: 0)
+                game.addPlayer(name: "Player 1", score: 0, symbol: "X")
+                game.addPlayer(name: "Computer", score: 0, symbol: "O")
                 performSegue(withIdentifier: segueToGame, sender: self)
     }
     

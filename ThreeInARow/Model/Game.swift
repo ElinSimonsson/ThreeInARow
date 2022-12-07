@@ -3,62 +3,61 @@ import UIKit
 
 class Game {
     private var players = [Player]()
-    private var availableSquares = [Square]()
-    private var listOfClickedSquare = [Square]()
-    var checkAlreadyContainsList = false
+    private var boards = [Board]()
+    private var clickedBoards = [Board]()
+    var checkBoardIsNotEmpty = false
     
-    func clearClickedSquares () {
-        listOfClickedSquare.removeAll()
+    func clearClickedBoards () {
+        clickedBoards.removeAll()
     }
 
-    func findAvailableSquare () -> Int {
-        if availableSquares.count == listOfClickedSquare.count {
-            listOfClickedSquare.removeAll()
+    func randomEmptyBoard () -> Int {
+        if boards.count == clickedBoards.count {
+            clickedBoards.removeAll()
             return 0
         }
-        var square : Square?
-        let countAvailableSquares = availableSquares.count
+        var board : Board?
+        let countBoards = boards.count
         repeat {
-            let random = Int.random(in: 0..<countAvailableSquares)
-            square = availableSquares[random]
-            if let square = square {
-                checkAlreadyContainsList = checkContainsListOfClickedSquare(square: square)
+            let random = Int.random(in: 0..<countBoards)
+            board = boards[random]
+            if let board = board {
+                checkBoardIsNotEmpty = checkContainsClickedBoards(clickedBoard: board)
             }
-        } while checkAlreadyContainsList
-        if let newSquare = square {
-            listOfClickedSquare.append(newSquare)
-            //print("added \(newSquare.numberOfSquare)")
+        } while checkBoardIsNotEmpty
+        if let newBoard = board {
+            clickedBoards.append(newBoard)
         }
-        return square?.numberOfSquare ?? 0
+        return board?.numberOfBoard ?? 0
     }
     
-    func checkContainsListOfClickedSquare (square: Square ) -> Bool {
-        for clickedSquares in listOfClickedSquare {
-            if clickedSquares.numberOfSquare == square.numberOfSquare {
+    func checkContainsClickedBoards (clickedBoard: Board ) -> Bool {
+        for board in clickedBoards {
+            if board.numberOfBoard == clickedBoard.numberOfBoard {
                 return true
             }
         }
         return false
     }
     
-    
-    
-    func addSquare (numberOfSquare: Int) {
-        let square = Square(numberOfSquare: numberOfSquare)
-            availableSquares.append(square)
+    func checkIfAllBoardIsNotEmpty() -> Bool {
+        return clickedBoards.count == boards.count
     }
     
-    func addClickedSquare (numberOfSquare: Int) {
-        let clickedSquare = Square(numberOfSquare: numberOfSquare)
-        listOfClickedSquare.append(clickedSquare)
+    func addBoard (board: Board) {
+            boards.append(board)
+    }
+    
+    func addClickedBoard (board: Board) {
+        clickedBoards.append(board)
     }
     
     func deleteAllPlayers () {
         players.removeAll()
     }
     
-    func addPlayer (name: String, score: Int) {
-        let player = Player(name: name, score: score)
+    func addPlayer (name: String, score: Int, symbol: String) {
+        let player = Player(name: name, score: score, symbol: symbol)
         players.append(player)
     }
     
@@ -70,7 +69,7 @@ class Game {
         return players[index]
     }
     
-    func count () -> Int {
+    func countPlayers () -> Int {
             return players.count
         }
     

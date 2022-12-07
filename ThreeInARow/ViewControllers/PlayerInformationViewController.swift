@@ -7,8 +7,9 @@
 
 import UIKit
 
-class PlayerInformationViewController: UIViewController {
-
+class PlayerInformationViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var playerOneNameTextField: UITextField!
     @IBOutlet weak var playerTwoNameTextField: UITextField!
@@ -22,8 +23,16 @@ class PlayerInformationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.scrollView.contentSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height)
+        
+        playerOneNameTextField.delegate = self
+        playerTwoNameTextField.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -35,24 +44,12 @@ class PlayerInformationViewController: UIViewController {
             destinationVC?.playerOne = playerOne
             destinationVC?.playerTwo = playerTwo
             destinationVC?.playingTowardComputer = false
-//            if segue.identifier == segueToPopUp {
-//                let destinationVC = segue.destination as? PopUpViewController
-//                if playerOneWon {
-//                    let playerOne = game.player(index: 0)
-//                    destinationVC?.player = playerOne
-//                    playerOneWon = false
-//                } else if playerTwoWon {
-//                    let playerTwo = game.player(index: 1)
-//                    destinationVC?.player = playerTwo
-//                    playerTwoWon = false
-//                }
-//            }
+            
         }
     }
-
-
+    
     @IBAction func playBtnPressed(_ sender: UIButton) {
-        if game.count() > 0 {
+        if game.countPlayers() > 0 {
             game.deleteAllPlayers()
         }
         
@@ -70,12 +67,28 @@ class PlayerInformationViewController: UIViewController {
             playerTwoName = playerTwoNameTextField.text ?? playerTwoDefaultName
         }
         
-        game.addPlayer(name: playerOneName, score: 0)
-        game.addPlayer(name: playerTwoName, score: 0)
+        game.addPlayer(name: playerOneName, score: 0, symbol: "X")
+        game.addPlayer(name: playerTwoName, score: 0, symbol: "O")
         
         performSegue(withIdentifier: segueToGame, sender: self)
-        
-        
-        
     }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField.tag {
+        case 1:
+            self.playerTwoNameTextField.becomeFirstResponder()
+        case 2:
+            self.playerTwoNameTextField.resignFirstResponder()
+        default:
+            break
+        }
+       
+        return false
+    }
+    
 }
+
