@@ -15,8 +15,8 @@ class Board {
     }
 }
 
-// in this game, every board have a own number. See below
+// in this game, every board have a number with both of (row) + (column). see below
 
-// 1,2,3
-// 4,5,6
-// 7,8,9
+// 11,12,13
+// 21,22,23
+// 31,32,33

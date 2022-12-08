@@ -4,6 +4,7 @@ class GameViewController: UIViewController, CanReceive {
     func passDataBack(gameIsRestarted: Bool) {
         let _ = gameIsRestarted
         game.clearClickedBoards()
+        print("inne i spelet körs")
         restartGameLayout()
         playerOneWon = false
         playerTwoWon = false
@@ -42,19 +43,10 @@ class GameViewController: UIViewController, CanReceive {
         
         initializeGame()
         
-//        for number in 1...9{
-//            game.addBoard(board: Board(numberOfBoard: number))
-//        }
+        initBoard()
     }
     
-    func initializeGame () {
-        if let playerOneName = playerOne?.name,
-           let playerTwoName = playerTwo?.name {
-            playerTurnLabel.text = "\(playerOneName)´s turn"
-            playerOneNameLabel.text = playerOneName
-            playerTwoNameLabel.text = playerTwoName
-        }
-        
+    func initBoard () {
         game.addBoard(board: Board(rowAndColumn: 11))
         game.addBoard(board: Board(rowAndColumn: 12))
         game.addBoard(board: Board(rowAndColumn: 13))
@@ -64,6 +56,15 @@ class GameViewController: UIViewController, CanReceive {
         game.addBoard(board: Board(rowAndColumn: 31))
         game.addBoard(board: Board(rowAndColumn: 32))
         game.addBoard(board: Board(rowAndColumn: 33))
+    }
+    
+    func initializeGame () {
+        if let playerOneName = playerOne?.name,
+           let playerTwoName = playerTwo?.name {
+            playerTurnLabel.text = "\(playerOneName)´s turn"
+            playerOneNameLabel.text = playerOneName
+            playerTwoNameLabel.text = playerTwoName
+        }
         
         boardOneLabel.layer.borderWidth = 1.5
         boardTwoLabel.layer.borderWidth = 1.5
@@ -243,6 +244,7 @@ class GameViewController: UIViewController, CanReceive {
     
     func delayComputerChooseBoard () {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            print("dator körs")
             self.player1Turn = true
             if self.gameIsOver == false {
                 self.computerClickBoard()
@@ -294,7 +296,9 @@ class GameViewController: UIViewController, CanReceive {
     }
     
     func checkIfAllBoardsIsFilled () {
+        print(game.checkBoardIsNotEmpty)
         if game.checkIfAllBoardIsNotEmpty() && gameIsOver == false {
+            print("inom checkIfAllBoards körs")
             gameIsOver = true
             performSegue(withIdentifier: segueToPopUp, sender: self)
         }

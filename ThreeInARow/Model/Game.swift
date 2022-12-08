@@ -41,6 +41,11 @@ class Game {
     }
     
     func checkIfAllBoardIsNotEmpty() -> Bool {
+        print(clickedBoards.count)
+        print(boards.count)
+        if clickedBoards.count == boards.count {
+            print("inne i game kontroll: true")
+        }
         return clickedBoards.count == boards.count
     }
     
