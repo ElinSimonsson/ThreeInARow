@@ -8,10 +8,10 @@
 import Foundation
 
 class Board {
-    var numberOfBoard: Int
+    var rowAndColumn: Int
     
-    init(numberOfBoard: Int) {
-        self.numberOfBoard = numberOfBoard
+    init(rowAndColumn: Int) {
+        self.rowAndColumn = rowAndColumn
     }
 }
 

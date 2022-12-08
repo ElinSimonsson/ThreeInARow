@@ -42,9 +42,9 @@ class GameViewController: UIViewController, CanReceive {
         
         initializeGame()
         
-        for number in 1...9{
-            game.addBoard(board: Board(numberOfBoard: number))
-        }
+//        for number in 1...9{
+//            game.addBoard(board: Board(numberOfBoard: number))
+//        }
     }
     
     func initializeGame () {
@@ -55,6 +55,15 @@ class GameViewController: UIViewController, CanReceive {
             playerTwoNameLabel.text = playerTwoName
         }
         
+        game.addBoard(board: Board(rowAndColumn: 11))
+        game.addBoard(board: Board(rowAndColumn: 12))
+        game.addBoard(board: Board(rowAndColumn: 13))
+        game.addBoard(board: Board(rowAndColumn: 21))
+        game.addBoard(board: Board(rowAndColumn: 22))
+        game.addBoard(board: Board(rowAndColumn: 23))
+        game.addBoard(board: Board(rowAndColumn: 31))
+        game.addBoard(board: Board(rowAndColumn: 32))
+        game.addBoard(board: Board(rowAndColumn: 33))
         
         boardOneLabel.layer.borderWidth = 1.5
         boardTwoLabel.layer.borderWidth = 1.5
@@ -84,31 +93,31 @@ class GameViewController: UIViewController, CanReceive {
         let playerTwoSymbol = String(playerTwo.symbol)
         
         switch game.randomEmptyBoard() {
-        case 1:
+        case 11:
             boardOneLabel.textColor = UIColor.red
             boardOneLabel.text = playerTwoSymbol
-        case 2:
+        case 12:
             boardTwoLabel.textColor = UIColor.red
             boardTwoLabel.text = playerTwoSymbol
-        case 3:
+        case 13:
             boardThreeLabel.textColor = UIColor.red
             boardThreeLabel.text = playerTwoSymbol
-        case 4:
+        case 21:
             boardFourLabel.textColor = UIColor.red
             boardFourLabel.text = playerTwoSymbol
-        case 5:
+        case 22:
             boardFiveLabel.textColor = UIColor.red
             boardFiveLabel.text = playerTwoSymbol
-        case 6:
+        case 23:
             boardSixLabel.textColor = UIColor.red
             boardSixLabel.text = playerTwoSymbol
-        case 7:
+        case 31:
             boardSevenLabel.textColor = UIColor.red
             boardSevenLabel.text = playerTwoSymbol
-        case 8:
+        case 32:
             boardEightLabel.textColor = UIColor.red
             boardEightLabel.text = playerTwoSymbol
-        case 9:
+        case 33:
             boardNineLabel.textColor = UIColor.red
             boardNineLabel.text = playerTwoSymbol
         default: break
@@ -291,84 +300,18 @@ class GameViewController: UIViewController, CanReceive {
         }
     }
     
-    @IBAction func boardOneTapped(_ sender: UITapGestureRecognizer) {
-        if gameIsOver == false {
-            let board1 = Board(numberOfBoard: 1)
-            addToBoard(label: boardOneLabel, board: board1)
-            checkIfPlayerWins()
-            checkIfAllBoardsIsFilled()
-        }
-    }
-    
-    @IBAction func boardTwoTapped(_ sender: UITapGestureRecognizer) {
-        if gameIsOver == false {
-            let board2 = Board(numberOfBoard: 2)
-            addToBoard(label: boardTwoLabel, board: board2)
-            checkIfPlayerWins()
-            checkIfAllBoardsIsFilled()
-        }
-    }
-    
-    @IBAction func boardThreeTapped(_ sender: UITapGestureRecognizer) {
-        if gameIsOver == false {
-            let board3 = Board(numberOfBoard: 3)
-            addToBoard(label: boardThreeLabel, board: board3)
-            checkIfPlayerWins()
-            checkIfAllBoardsIsFilled()
-        }
-    }
-    
-    @IBAction func boardFourTapped(_ sender: UITapGestureRecognizer) {
-        if gameIsOver == false {
-            let board4 = Board(numberOfBoard: 4)
-            addToBoard(label: boardFourLabel, board: board4)
-            checkIfPlayerWins()
-            checkIfAllBoardsIsFilled()
-        }
-    }
-    
-    @IBAction func boardFiveTapped(_ sender: UITapGestureRecognizer) {
-        if gameIsOver == false {
-            let board5 = Board(numberOfBoard: 5)
-            addToBoard(label: boardFiveLabel, board: board5)
-            checkIfPlayerWins()
-            checkIfAllBoardsIsFilled()
-        }
-    }
-    
-    @IBAction func boardSixTapped(_ sender: UITapGestureRecognizer) {
-        if gameIsOver == false {
-            let board6 = Board(numberOfBoard: 6)
-            addToBoard(label: boardSixLabel, board: board6)
-            checkIfPlayerWins()
-            checkIfAllBoardsIsFilled()
-        }
-    }
-    
-    @IBAction func boardSevenTapped(_ sender: UITapGestureRecognizer) {
-        if gameIsOver == false {
-            let board7 = Board(numberOfBoard: 7)
-            addToBoard(label: boardSevenLabel, board: board7)
-            checkIfPlayerWins()
-            checkIfAllBoardsIsFilled()
-        }
-    }
-    
-    @IBAction func boardEightTapped(_ sender: UITapGestureRecognizer) {
-        if gameIsOver == false {
-            let board8 = Board(numberOfBoard: 8)
-            addToBoard(label: boardEightLabel, board: board8)
-            checkIfPlayerWins()
-            checkIfAllBoardsIsFilled()
-        }
-    }
-    
-    @IBAction func boardNineTapped(_ sender: UITapGestureRecognizer) {
-        if gameIsOver == false {
-            let board9 = Board(numberOfBoard: 9)
-            addToBoard(label: boardNineLabel, board: board9)
-            checkIfPlayerWins()
-            checkIfAllBoardsIsFilled()
+
+    @IBAction func boardTapped(_ sender: UITapGestureRecognizer) {
+        if let view = sender.view {
+            let tag = view.tag
+            
+            if gameIsOver == false {
+                if let label = self.view.viewWithTag(tag) as? UILabel {
+                    addToBoard(label: label, board: Board(rowAndColumn: tag))
+                    checkIfPlayerWins()
+                    checkIfAllBoardsIsFilled()
+                }
+            }
         }
     }
 }

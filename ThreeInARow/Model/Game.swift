@@ -28,12 +28,12 @@ class Game {
         if let newBoard = board {
             clickedBoards.append(newBoard)
         }
-        return board?.numberOfBoard ?? 0
+        return board?.rowAndColumn ?? 0
     }
     
     func checkContainsClickedBoards (clickedBoard: Board ) -> Bool {
         for board in clickedBoards {
-            if board.numberOfBoard == clickedBoard.numberOfBoard {
+            if board.rowAndColumn == clickedBoard.rowAndColumn {
                 return true
             }
         }

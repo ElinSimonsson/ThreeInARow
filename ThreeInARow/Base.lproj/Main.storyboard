@@ -233,7 +233,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKS-St-SXt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKS-St-SXt" userLabel="Player two score label">
                                 <rect key="frame" x="233" y="721" width="50" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="VGp-s7-ws5"/>
@@ -253,7 +253,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rip-Sb-CCC">
+                            <label opaque="NO" tag="13" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rip-Sb-CCC" userLabel="Board Three Label">
                                 <rect key="frame" x="241.66666666666663" y="291" width="90" height="90"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <gestureRecognizers/>
@@ -265,10 +265,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="KLX-MW-3zH" appends="YES" id="xaG-S0-8ts"/>
+                                    <outletCollection property="gestureRecognizers" destination="KLX-MW-3zH" appends="YES" id="0yP-Ro-jvJ"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTS-lQ-Mro">
+                            <label opaque="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTS-lQ-Mro" userLabel="Board One Label">
                                 <rect key="frame" x="61.666666666666657" y="291" width="90" height="90"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -280,10 +280,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="S7w-83-pHo" appends="YES" id="eNO-ZH-6bE"/>
+                                    <outletCollection property="gestureRecognizers" destination="7hn-OH-ZYD" appends="YES" id="Dwh-Ya-6pP"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9V-r9-Ib9">
+                            <label opaque="NO" tag="21" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9V-r9-Ib9" userLabel="Board Four Label">
                                 <rect key="frame" x="61.666666666666657" y="381" width="90" height="90"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -296,10 +296,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="5nN-Uo-q16" appends="YES" id="YHK-74-uqb"/>
+                                    <outletCollection property="gestureRecognizers" destination="5nN-Uo-q16" appends="YES" id="CBX-9r-7OE"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwE-t2-bTN">
+                            <label opaque="NO" tag="23" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwE-t2-bTN" userLabel="Board Six Label">
                                 <rect key="frame" x="241.66666666666663" y="381" width="90" height="90"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                 <gestureRecognizers/>
@@ -311,10 +311,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="seA-KB-WPY" appends="YES" id="lgt-Qq-3xY"/>
+                                    <outletCollection property="gestureRecognizers" destination="seA-KB-WPY" appends="YES" id="Euz-LF-rix"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efY-Tq-Xwa">
+                            <label opaque="NO" tag="31" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efY-Tq-Xwa" userLabel="Board Seven Label">
                                 <rect key="frame" x="61.666666666666657" y="471" width="90" height="90"/>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <gestureRecognizers/>
@@ -326,10 +326,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="wqy-hJ-weo" appends="YES" id="VEB-qX-pwF"/>
+                                    <outletCollection property="gestureRecognizers" destination="wqy-hJ-weo" appends="YES" id="w2A-Y8-FdW"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb4-bW-a1i">
+                            <label opaque="NO" tag="32" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb4-bW-a1i" userLabel="Board Eight Label">
                                 <rect key="frame" x="151.66666666666666" y="471" width="90" height="90"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
@@ -341,10 +341,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="rcA-Be-JoH" appends="YES" id="VHx-8e-leK"/>
+                                    <outletCollection property="gestureRecognizers" destination="rcA-Be-JoH" appends="YES" id="IXl-8J-2L1"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CV3-w6-ETp">
+                            <label opaque="NO" tag="33" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CV3-w6-ETp" userLabel="Board Nine Label">
                                 <rect key="frame" x="241.66666666666663" y="471" width="90" height="90"/>
                                 <color key="backgroundColor" systemColor="tintColor"/>
                                 <gestureRecognizers/>
@@ -356,10 +356,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="zNy-cs-awj" appends="YES" id="OvU-ox-Vsd"/>
+                                    <outletCollection property="gestureRecognizers" destination="zNy-cs-awj" appends="YES" id="CfA-Z6-Rus"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdI-IT-XcP">
+                            <label opaque="NO" tag="22" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdI-IT-XcP" userLabel="Board Five Label">
                                 <rect key="frame" x="151.66666666666666" y="381" width="90" height="90"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <gestureRecognizers/>
@@ -371,10 +371,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="DS2-W0-70z" appends="YES" id="L4S-zm-gGJ"/>
+                                    <outletCollection property="gestureRecognizers" destination="DS2-W0-70z" appends="YES" id="eIz-rL-owV"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP9-2Z-SYd">
+                            <label opaque="NO" tag="12" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP9-2Z-SYd" userLabel="Board Two Label">
                                 <rect key="frame" x="151.66666666666666" y="291" width="90" height="90"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <gestureRecognizers/>
@@ -386,10 +386,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="i5c-HW-KUJ" appends="YES" id="vZv-Sh-zax"/>
+                                    <outletCollection property="gestureRecognizers" destination="i5c-HW-KUJ" appends="YES" id="cPD-l1-bpv"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keQ-IN-6Us">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keQ-IN-6Us" userLabel="Player One Score Label">
                                 <rect key="frame" x="108" y="716" width="50" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
@@ -464,72 +464,68 @@
                     </view>
                     <navigationItem key="navigationItem" id="QgW-sU-x65"/>
                     <connections>
-                        <outlet property="boardEightLabel" destination="rb4-bW-a1i" id="5Ig-ZF-Hz7"/>
-                        <outlet property="boardFiveLabel" destination="qdI-IT-XcP" id="xJx-of-NkY"/>
-                        <outlet property="boardFourLabel" destination="K9V-r9-Ib9" id="Nke-5L-IoX"/>
-                        <outlet property="boardNineLabel" destination="CV3-w6-ETp" id="eJE-VR-JWg"/>
-                        <outlet property="boardOneLabel" destination="bTS-lQ-Mro" id="7X4-oz-ozZ"/>
-                        <outlet property="boardSevenLabel" destination="efY-Tq-Xwa" id="hEn-2A-XRR"/>
-                        <outlet property="boardSixLabel" destination="cwE-t2-bTN" id="JAF-nR-4xb"/>
-                        <outlet property="boardThreeLabel" destination="Rip-Sb-CCC" id="JRa-5j-eBt"/>
-                        <outlet property="boardTwoLabel" destination="PP9-2Z-SYd" id="x2r-eP-hXc"/>
-                        <outlet property="playerOneNameLabel" destination="JR0-15-e8N" id="Qrc-cN-5QL"/>
-                        <outlet property="playerOneScoreLabel" destination="keQ-IN-6Us" id="rg3-iV-ney"/>
+                        <outlet property="boardEightLabel" destination="rb4-bW-a1i" id="ZK1-Gq-sd7"/>
+                        <outlet property="boardFiveLabel" destination="qdI-IT-XcP" id="nAi-5q-wJd"/>
+                        <outlet property="boardFourLabel" destination="K9V-r9-Ib9" id="ToZ-Of-reI"/>
+                        <outlet property="boardNineLabel" destination="CV3-w6-ETp" id="Vb5-jA-SPZ"/>
+                        <outlet property="boardOneLabel" destination="bTS-lQ-Mro" id="lC0-HS-3mT"/>
+                        <outlet property="boardSevenLabel" destination="efY-Tq-Xwa" id="2f2-0B-RrC"/>
+                        <outlet property="boardSixLabel" destination="cwE-t2-bTN" id="jBO-wX-K8p"/>
+                        <outlet property="boardThreeLabel" destination="Rip-Sb-CCC" id="CHc-r8-K8P"/>
+                        <outlet property="boardTwoLabel" destination="PP9-2Z-SYd" id="mq9-et-jgC"/>
+                        <outlet property="playerOneNameLabel" destination="JR0-15-e8N" id="N79-sA-O9l"/>
+                        <outlet property="playerOneScoreLabel" destination="keQ-IN-6Us" id="L4b-36-Tfs"/>
                         <outlet property="playerTurnLabel" destination="Dht-SH-XAD" id="UVN-QZ-wqR"/>
-                        <outlet property="playerTwoNameLabel" destination="AXS-ap-DJA" id="imY-qg-TR2"/>
-                        <outlet property="playerTwoScoreLabel" destination="rKS-St-SXt" id="bZY-BO-kOE"/>
+                        <outlet property="playerTwoNameLabel" destination="AXS-ap-DJA" id="vWg-Wt-4vC"/>
+                        <outlet property="playerTwoScoreLabel" destination="rKS-St-SXt" id="Gme-4B-hBx"/>
                         <segue destination="NHA-Zr-NbA" kind="showDetail" identifier="segueToPopUp" id="Lmp-gv-Kz7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="S7w-83-pHo" userLabel="Tap Board1 Gesture Recognizer">
-                    <connections>
-                        <action selector="boardOneTapped:" destination="BYZ-38-t0r" id="mMk-QD-jpJ"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="S7w-83-pHo" userLabel="Tap Board1 Gesture Recognizer"/>
                 <tapGestureRecognizer id="i5c-HW-KUJ" userLabel="Tap Board2 Gesture Recognizer">
                     <connections>
-                        <action selector="boardTwoTapped:" destination="BYZ-38-t0r" id="BVJ-QL-2Q4"/>
+                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="8xi-eg-RBx"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="KLX-MW-3zH" userLabel="Tap Board3 Gesture Recognizer">
                     <connections>
-                        <action selector="boardThreeTapped:" destination="BYZ-38-t0r" id="IQc-1Z-6Ca"/>
+                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="GOv-kD-NCQ"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="5nN-Uo-q16" userLabel="Tap Board4 Gesture Recognizer">
                     <connections>
-                        <action selector="boardFourTapped:" destination="BYZ-38-t0r" id="Nfr-3M-QWy"/>
+                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="nGX-oM-L6G"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="DS2-W0-70z" userLabel="Tap Board5 Gesture Recognizer">
                     <connections>
-                        <action selector="boardFiveTapped:" destination="BYZ-38-t0r" id="wKL-xR-HGk"/>
+                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="8uZ-Vg-vDU"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="seA-KB-WPY" userLabel="Tap Board6 Gesture Recognizer">
                     <connections>
-                        <action selector="boardSixTapped:" destination="BYZ-38-t0r" id="DN4-7f-U5c"/>
+                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="JjS-lW-xVf"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="wqy-hJ-weo" userLabel="Tap Board7 Gesture Recognizer">
                     <connections>
-                        <action selector="boardSevenTapped:" destination="BYZ-38-t0r" id="K0J-0k-SyX"/>
+                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="KWz-2p-P6D"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="rcA-Be-JoH" userLabel="Tap Board8 Gesture Recognizer">
                     <connections>
-                        <action selector="boardEightTapped:" destination="BYZ-38-t0r" id="L9a-2W-HHh"/>
+                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="ox1-qo-jib"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="zNy-cs-awj" userLabel="Tap Board9 Gesture Recognizer">
                     <connections>
-                        <action selector="boardNineTapped:" destination="BYZ-38-t0r" id="xu0-ZD-WzV"/>
+                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="OaU-C5-laT"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="7hn-OH-ZYD">
                     <connections>
-                        <action selector="test:" destination="BYZ-38-t0r" id="EGL-vk-Zkz"/>
+                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="PDU-7m-XbL"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
