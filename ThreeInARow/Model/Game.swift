@@ -1,11 +1,11 @@
 
-import UIKit
 
 class Game {
     private var players = [Player]()
     private var boards = [Board]()
     private var clickedBoards = [Board]()
     var checkBoardIsNotEmpty = false
+    let stringVariable0 = ""
     
     func clearClickedBoards () {
         clickedBoards.removeAll()
@@ -56,7 +56,7 @@ class Game {
         players.removeAll()
     }
     
-    func addPlayer (name: String, score: Int, symbol: String) {
+    func addPlayer (name: String, score: Int, symbol: Character) {
         let player = Player(name: name, score: score, symbol: symbol)
         players.append(player)
     }
@@ -73,21 +73,22 @@ class Game {
             return players.count
         }
     
-    func checkIfThreeRow (playerSymbol symbol: String, label1 box1: UILabel, label2 box2: UILabel, label3 box3: UILabel,
-                                 label4 box4: UILabel, label5 box5: UILabel, label6 box6: UILabel,
-                                 label7 box7: UILabel, label8 box8: UILabel, label9 box9: UILabel) -> Bool {
+    func checkIfThreeRow (playerSymbol symbol: Character, label1 board1: String, label2 board2: String, label3 board3: String,
+                                 label4 board4: String, label5 board5: String, label6 board6: String,
+                          label7 board7: String, label8 board8: String, label9 board9: String) -> Bool {
+
+        let symbolAsString = String(symbol)
         
-        if box1.text == symbol && box2.text == symbol && box3.text == symbol ||
-            box1.text == symbol && box4.text == symbol && box7.text == symbol ||
-            box1.text == symbol && box5.text == symbol && box9.text == symbol ||
-            box4.text == symbol && box5.text == symbol && box6.text == symbol ||
-            box7.text == symbol && box8.text == symbol && box9.text == symbol ||
-            box2.text == symbol && box5.text == symbol && box8.text == symbol ||
-            box3.text == symbol && box6.text == symbol && box9.text == symbol ||
-            box3.text == symbol && box5.text == symbol && box7.text == symbol {
+        if board1 == symbolAsString && board2 == symbolAsString && board3 == symbolAsString ||
+            board1 == symbolAsString && board4 == symbolAsString && board7 == symbolAsString ||
+            board1 == symbolAsString && board5 == symbolAsString && board9 == symbolAsString ||
+            board4 == symbolAsString && board5 == symbolAsString && board6 == symbolAsString ||
+            board7 == symbolAsString && board8 == symbolAsString && board9 == symbolAsString ||
+            board2 == symbolAsString && board5 == symbolAsString && board8 == symbolAsString ||
+            board3 == symbolAsString && board6 == symbolAsString && board9 == symbolAsString ||
+            board3 == symbolAsString && board5 == symbolAsString && board7 == symbolAsString {
             return true
         }
         return false
     }
-    
 }

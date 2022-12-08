@@ -10,10 +10,10 @@ import Foundation
 class Player {
     var name: String
     var score: Int
-    var symbol: String
+    var symbol: Character
     
     
-    init(name: String, score: Int, symbol: String) {
+    init(name: String, score: Int, symbol: Character) {
         self.name = name
         self.score = score
         self.symbol = symbol
