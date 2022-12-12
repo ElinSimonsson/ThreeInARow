@@ -5,14 +5,27 @@ class Game {
     private var boards = [Board]()
     private var clickedBoards = [Board]()
     var checkBoardIsNotEmpty = false
-    let stringVariable0 = ""
+    var playerOneWin = false
+    var playerTwoWin = false
+    var gameover = false
+    var playingTowardsComputer = false //default
+    var player1Turn = true
+    
+    enum Turn {
+        case p1
+        case p2
+    }
+    
+    var firstTurn = Turn.p1
+    var currentTurn = Turn.p1
     
     func clearClickedBoards () {
         clickedBoards.removeAll()
     }
 
     func randomEmptyBoard () -> Int {
-        if boards.count == clickedBoards.count { // this if-statement is useless but if the one is removed, it causes bugs
+        if boards.count == clickedBoards.count {
+            gameover = true
             return 0
         }
         var board : Board?
@@ -26,6 +39,8 @@ class Game {
         } while checkBoardIsNotEmpty
         if let newBoard = board {
             clickedBoards.append(newBoard)
+            player1Turn = true
+            currentTurn = Turn.p1
         }
         return board?.rowAndColumn ?? 0
     }
@@ -40,14 +55,36 @@ class Game {
     }
     
     func checkIfAllBoardIsNotEmpty() -> Bool {
-        return clickedBoards.count == boards.count
+        if playerOneWin == false && playerTwoWin == false {
+            return clickedBoards.count == boards.count
+        }
+        return false
     }
     
-    func addBoard (board: Board) {
-            boards.append(board)
+    func initBoards () {
+        boards.append(Board(rowAndColumn: 11))
+        boards.append(Board(rowAndColumn: 12))
+        boards.append(Board(rowAndColumn: 13))
+        boards.append(Board(rowAndColumn: 21))
+        boards.append(Board(rowAndColumn: 22))
+        boards.append(Board(rowAndColumn: 23))
+        boards.append(Board(rowAndColumn: 31))
+        boards.append(Board(rowAndColumn: 32))
+        boards.append(Board(rowAndColumn: 33))
     }
     
-    func addClickedBoard (board: Board) {
+    func makeTurn (board: Board) {
+        if playingTowardsComputer {
+            if currentTurn == Turn.p1 {
+                currentTurn = Turn.p2
+            }
+        } else {
+            if (currentTurn == Turn.p1) {
+                currentTurn = Turn.p2
+            } else if (currentTurn == Turn.p2) {
+                currentTurn = Turn.p1
+            }
+        }
         clickedBoards.append(board)
     }
     
@@ -72,7 +109,7 @@ class Game {
             return players.count
         }
     
-    func checkIfThreeRow (playerSymbol symbol: Character, label1 board1: String, label2 board2: String, label3 board3: String,
+    func checkIfThreeRow (playerOne: Player, playerTwo: Player, playerSymbol symbol: Character, label1 board1: String, label2 board2: String, label3 board3: String,
                                  label4 board4: String, label5 board5: String, label6 board6: String,
                           label7 board7: String, label8 board8: String, label9 board9: String) -> Bool {
 
@@ -86,8 +123,38 @@ class Game {
             board2 == symbolAsString && board5 == symbolAsString && board8 == symbolAsString ||
             board3 == symbolAsString && board6 == symbolAsString && board9 == symbolAsString ||
             board3 == symbolAsString && board5 == symbolAsString && board7 == symbolAsString {
-            return true
+            if playerOne.symbol == symbol {
+                playerOneWin = true
+            } else if playerTwo.symbol == symbol {
+                playerTwoWin = true
+            }
+            gameover = true
+            return gameover
         }
         return false
+    }
+    
+    func checkIfPlayingComputer(playerTwo: Player) {
+        if playerTwo.name == "Computer" {
+            playingTowardsComputer = true
+        } else {
+            playingTowardsComputer = false
+        }
+    }
+    
+    func restartGame () {
+        clickedBoards.removeAll()
+        playerOneWin = false
+        playerTwoWin = false
+        gameover = false
+        player1Turn = true
+        
+        if firstTurn == Turn.p1 {
+            firstTurn = Turn.p2
+            currentTurn = Turn.p2
+        } else if firstTurn == Turn.p2 {
+            firstTurn = Turn.p1
+            currentTurn = Turn.p1
+        }
     }
 }

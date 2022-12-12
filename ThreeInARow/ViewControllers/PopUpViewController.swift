@@ -14,7 +14,7 @@ protocol CanReceive {
 class PopUpViewController: UIViewController {
     
     @IBOutlet weak var resultLabel: UILabel!
-
+    
     var player : Player?
     var delegate: CanReceive?
     var playAgain: Bool?
@@ -31,11 +31,10 @@ class PopUpViewController: UIViewController {
         } else {
             resultLabel.text = "It´s a tie!"
         }
-                
     }
     
     @IBAction func playAgainBtn(_ sender: UIButton) {
-       playAgain = true
+        playAgain = true
         if let sendBooleanBack = playAgain {
             delegate?.passDataBack(gameIsRestarted: sendBooleanBack)
             dismiss(animated: true, completion: nil)

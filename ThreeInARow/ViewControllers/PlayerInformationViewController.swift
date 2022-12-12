@@ -10,7 +10,6 @@ import UIKit
 class PlayerInformationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var playerOneNameTextField: UITextField!
     @IBOutlet weak var playerTwoNameTextField: UITextField!
     
@@ -31,8 +30,6 @@ class PlayerInformationViewController: UIViewController, UITextFieldDelegate {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,12 +40,11 @@ class PlayerInformationViewController: UIViewController, UITextFieldDelegate {
             let playerTwo = game.player(index: 1)
             destinationVC?.playerOne = playerOne
             destinationVC?.playerTwo = playerTwo
-            destinationVC?.playingTowardComputer = false
-            
         }
     }
     
     @IBAction func playBtnPressed(_ sender: UIButton) {
+        
         if game.countPlayers() > 0 {
             game.deleteAllPlayers()
         }
@@ -69,7 +65,6 @@ class PlayerInformationViewController: UIViewController, UITextFieldDelegate {
         
         game.addPlayer(name: playerOneName, score: 0, symbol: "X")
         game.addPlayer(name: playerTwoName, score: 0, symbol: "O")
-        
         performSegue(withIdentifier: segueToGame, sender: self)
     }
     

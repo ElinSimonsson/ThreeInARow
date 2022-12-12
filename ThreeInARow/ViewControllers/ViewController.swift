@@ -35,8 +35,6 @@ class ViewController: UIViewController {
             let playerTwo = game.player(index: 1)
             destinationVC?.playerOne = playerOne
             destinationVC?.playerTwo = playerTwo
-            destinationVC?.playingTowardComputer = true
-            
         }
     }
     
@@ -45,9 +43,10 @@ class ViewController: UIViewController {
         if game.countPlayers() > 0 {
                     game.deleteAllPlayers()
                 }
-                game.addPlayer(name: "Player 1", score: 0, symbol: "X")
-                game.addPlayer(name: "Computer", score: 0, symbol: "O")
-                performSegue(withIdentifier: segueToGame, sender: self)
+        game.addPlayer(name: "Player 1", score: 0, symbol: "X")
+        game.addPlayer(name: "Computer", score: 0, symbol: "O")
+       // game.checkIfPlayingComputer()
+        performSegue(withIdentifier: segueToGame, sender: self)
     }
     
     @IBAction func handleTapTwoPlayer(_ sender: UITapGestureRecognizer) {
