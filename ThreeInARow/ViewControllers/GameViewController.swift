@@ -4,7 +4,6 @@ class GameViewController: UIViewController, CanReceive {
     func passDataBack(gameIsRestarted: Bool) {
         let _ = gameIsRestarted
         game.clearClickedBoards()
-        print("inne i spelet körs")
         restartGameLayout()
         playerOneWon = false
         playerTwoWon = false
@@ -89,39 +88,30 @@ class GameViewController: UIViewController, CanReceive {
         }
     }
     
-    func computerClickBoard () {
+    func computerAddRandomBoard () {
         guard let playerTwo = playerTwo else {return}
         let playerTwoSymbol = String(playerTwo.symbol)
+        let tagRowAndColumn = game.randomEmptyBoard()
         
-        switch game.randomEmptyBoard() {
-        case 11:
-            boardOneLabel.textColor = UIColor.red
-            boardOneLabel.text = playerTwoSymbol
-        case 12:
-            boardTwoLabel.textColor = UIColor.red
-            boardTwoLabel.text = playerTwoSymbol
-        case 13:
-            boardThreeLabel.textColor = UIColor.red
-            boardThreeLabel.text = playerTwoSymbol
-        case 21:
-            boardFourLabel.textColor = UIColor.red
-            boardFourLabel.text = playerTwoSymbol
-        case 22:
-            boardFiveLabel.textColor = UIColor.red
-            boardFiveLabel.text = playerTwoSymbol
-        case 23:
-            boardSixLabel.textColor = UIColor.red
-            boardSixLabel.text = playerTwoSymbol
-        case 31:
-            boardSevenLabel.textColor = UIColor.red
-            boardSevenLabel.text = playerTwoSymbol
-        case 32:
-            boardEightLabel.textColor = UIColor.red
-            boardEightLabel.text = playerTwoSymbol
-        case 33:
-            boardNineLabel.textColor = UIColor.red
-            boardNineLabel.text = playerTwoSymbol
-        default: break
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                
+                // every label have a own tag e.g. 11 (row)+(column).
+                // the func "randomEmptyBoard" returns int as (row)+(column) and finds a label using tag
+                
+                if self.gameIsOver == false {
+                if let view = self.view.viewWithTag(tagRowAndColumn) {
+                    if let label = view as? UILabel {
+                        label.textColor = UIColor.red
+                        label.text = playerTwoSymbol
+                    }
+                }
+                self.player1Turn = true
+                if let playerOneName = self.playerOne?.name {
+                    self.playerTurnLabel.text = "\(playerOneName)´s turn"
+                }
+                self.checkIfPlayerWins()
+                self.checkIfAllBoardsIsFilled()
+            }
         }
     }
     
@@ -191,7 +181,6 @@ class GameViewController: UIViewController, CanReceive {
               let board7 = boardSevenLabel.text,
               let board8 = boardEightLabel.text,
               let board9 = boardNineLabel.text else {return}
-
         
         let checkIfPlayerOneWins = game.checkIfThreeRow(playerSymbol: playerOneSymbol, label1: board1, label2: board2, label3: board3, label4: board4, label5: board5, label6: board6, label7: board7, label8: board8, label9: board9)
         
@@ -242,21 +231,6 @@ class GameViewController: UIViewController, CanReceive {
         boardNineLabel.text = ""
     }
     
-    func delayComputerChooseBoard () {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            print("dator körs")
-            self.player1Turn = true
-            if self.gameIsOver == false {
-                self.computerClickBoard()
-                if let playerOneName = self.playerOne?.name {
-                    self.playerTurnLabel.text = "\(playerOneName)´s turn"
-                }
-                self.checkIfPlayerWins()
-                self.checkIfAllBoardsIsFilled()
-            }
-        }
-    }
-    
     func addToBoard (label : UILabel, board: Board ) {
         guard let playerOne = playerOne,
         let playerTwo = playerTwo else {return}
@@ -270,7 +244,7 @@ class GameViewController: UIViewController, CanReceive {
                     playerTurnLabel.text = "\(playerTwoName)´s turn"
                     game.addClickedBoard(board: board)
                     player1Turn = false
-                    delayComputerChooseBoard()
+                    computerAddRandomBoard()
                 }
             }
         } else {
@@ -296,14 +270,11 @@ class GameViewController: UIViewController, CanReceive {
     }
     
     func checkIfAllBoardsIsFilled () {
-        print(game.checkBoardIsNotEmpty)
         if game.checkIfAllBoardIsNotEmpty() && gameIsOver == false {
-            print("inom checkIfAllBoards körs")
             gameIsOver = true
             performSegue(withIdentifier: segueToPopUp, sender: self)
         }
     }
-    
 
     @IBAction func boardTapped(_ sender: UITapGestureRecognizer) {
         if let view = sender.view {

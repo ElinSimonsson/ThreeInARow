@@ -12,8 +12,7 @@ class Game {
     }
 
     func randomEmptyBoard () -> Int {
-        if boards.count == clickedBoards.count {
-            clickedBoards.removeAll()
+        if boards.count == clickedBoards.count { // this if-statement is useless but if the one is removed, it causes bugs
             return 0
         }
         var board : Board?
@@ -41,11 +40,6 @@ class Game {
     }
     
     func checkIfAllBoardIsNotEmpty() -> Bool {
-        print(clickedBoards.count)
-        print(boards.count)
-        if clickedBoards.count == boards.count {
-            print("inne i game kontroll: true")
-        }
         return clickedBoards.count == boards.count
     }
     
