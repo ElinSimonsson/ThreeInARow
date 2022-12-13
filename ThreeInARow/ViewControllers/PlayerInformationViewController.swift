@@ -24,6 +24,11 @@ class PlayerInformationViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         self.scrollView.contentSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height)
+//
+//        scrollView.alwaysBounceVertical = true
+//        scrollView.alwaysBounceHorizontal = false
+        
+        scrollView.contentSize = CGSize(width: view.frame.width, height: view.frame.height)
         
         playerOneNameTextField.delegate = self
         playerTwoNameTextField.delegate = self
