@@ -48,13 +48,17 @@ class GameViewController: UIViewController, CallBack {
         if let playerOneName = playerOne?.name,
            let playerTwoName = playerTwo?.name {
             if game.firstTurn == Game.Turn.p1 {
-                playerTurnLabel.text = "\(playerOneName)´s turn"
+                playerTurnLabel.text =  playerOneName
             } else if game.firstTurn == Game.Turn.p2 {
-                playerTurnLabel.text = "\(playerTwoName)´s turn"
+                playerTurnLabel.text = playerTwoName
             }
             playerOneNameLabel.text = playerOneName
             playerTwoNameLabel.text = playerTwoName
         }
+        
+        let screenSize = UIScreen.main.bounds
+        let imageView = UIImageView(frame: screenSize)
+        imageView.image = UIImage(named: "wood_background")
         
         row1Label1.layer.borderWidth = 1.5
         row1Label2.layer.borderWidth = 1.5
@@ -97,7 +101,7 @@ class GameViewController: UIViewController, CallBack {
                     }
                 }
                 if let playerOneName = self.playerOne?.name {
-                    self.playerTurnLabel.text = "\(playerOneName)´s turn"
+                    self.playerTurnLabel.text = playerOneName
                 }
                 self.checkIfPlayerWins()
                 self.checkFullBoard()
@@ -177,7 +181,7 @@ class GameViewController: UIViewController, CallBack {
         if checkIfPlayerOneWins {
             findThreeInRowSetGreenBackground(symbol: playerOne.symbol)
             game.increasePlayerScore(player: playerOne)
-            playerTurnLabel.text = "\(playerOne.name)´s turn" // explain why
+            playerTurnLabel.text = playerOne.name // explain why
             playerOneScoreLabel.text = String (playerOne.score)
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.performSegue(withIdentifier: self.segueToPopUp, sender: self)
@@ -186,7 +190,7 @@ class GameViewController: UIViewController, CallBack {
         } else if checkIfPlayerTwoWins {
             findThreeInRowSetGreenBackground(symbol: playerTwo.symbol)
             game.increasePlayerScore(player: playerTwo)
-            playerTurnLabel.text = "\(playerTwo.name)´s turn" // explain why
+            playerTurnLabel.text = playerTwo.name // explain why
             playerTwoScoreLabel.text = String (playerTwo.score)
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.performSegue(withIdentifier: self.segueToPopUp, sender: self)
@@ -217,7 +221,7 @@ class GameViewController: UIViewController, CallBack {
                     label.textColor = UIColor.blue
                     label.text = String(playerOne.symbol)
                     let playerTwoName = playerTwo.name
-                    playerTurnLabel.text = "\(playerTwoName)´s turn"
+                    playerTurnLabel.text = playerTwoName
                     game.makeTurn(cell: cell)
                     computerAddRandomCell()
                 }
@@ -226,13 +230,13 @@ class GameViewController: UIViewController, CallBack {
                     label.textColor = UIColor.blue
                     label.text = String(playerOne.symbol)
                     let playerTwoName = playerTwo.name
-                    playerTurnLabel.text = "\(playerTwoName)´s turn"
+                    playerTurnLabel.text = playerTwoName
                     game.makeTurn(cell: cell)
                 } else if game.currentTurn == Game.Turn.p2 {
                     label.textColor = UIColor.red
                     label.text = String(playerTwo.symbol)
                     let playerOneName = playerOne.name
-                    playerTurnLabel.text = "\(playerOneName)´s turn"
+                    playerTurnLabel.text = playerOneName
                     game.makeTurn(cell: cell)
                 }
             }
