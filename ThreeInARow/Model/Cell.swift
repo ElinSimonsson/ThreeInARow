@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Board {
+class Cell {
     var rowAndColumn: Int
     
     init(rowAndColumn: Int) {
@@ -15,7 +15,7 @@ class Board {
     }
 }
 
-// in this game, every board have a number with both of (row) + (column). see below
+// in this game, every cell have a number with both of (row) + (column). see below
 
 // 11,12,13
 // 21,22,23

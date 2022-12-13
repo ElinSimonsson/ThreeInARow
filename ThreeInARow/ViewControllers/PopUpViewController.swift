@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CanReceive {
+protocol CallBack {
     func passDataBack (gameIsRestarted: Bool)
 }
 
@@ -16,7 +16,7 @@ class PopUpViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     
     var player : Player?
-    var delegate: CanReceive?
+    var delegate: CallBack?
     var playAgain: Bool?
     
     override func viewDidLoad() {

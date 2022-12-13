@@ -404,7 +404,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dht-SH-XAD">
                                 <rect key="frame" x="94" y="165" width="204" height="42"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -464,20 +464,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="QgW-sU-x65"/>
                     <connections>
-                        <outlet property="boardEightLabel" destination="rb4-bW-a1i" id="ZK1-Gq-sd7"/>
-                        <outlet property="boardFiveLabel" destination="qdI-IT-XcP" id="nAi-5q-wJd"/>
-                        <outlet property="boardFourLabel" destination="K9V-r9-Ib9" id="ToZ-Of-reI"/>
-                        <outlet property="boardNineLabel" destination="CV3-w6-ETp" id="Vb5-jA-SPZ"/>
-                        <outlet property="boardOneLabel" destination="bTS-lQ-Mro" id="lC0-HS-3mT"/>
-                        <outlet property="boardSevenLabel" destination="efY-Tq-Xwa" id="2f2-0B-RrC"/>
-                        <outlet property="boardSixLabel" destination="cwE-t2-bTN" id="jBO-wX-K8p"/>
-                        <outlet property="boardThreeLabel" destination="Rip-Sb-CCC" id="CHc-r8-K8P"/>
-                        <outlet property="boardTwoLabel" destination="PP9-2Z-SYd" id="mq9-et-jgC"/>
                         <outlet property="playerOneNameLabel" destination="JR0-15-e8N" id="N79-sA-O9l"/>
                         <outlet property="playerOneScoreLabel" destination="keQ-IN-6Us" id="L4b-36-Tfs"/>
                         <outlet property="playerTurnLabel" destination="Dht-SH-XAD" id="UVN-QZ-wqR"/>
                         <outlet property="playerTwoNameLabel" destination="AXS-ap-DJA" id="vWg-Wt-4vC"/>
                         <outlet property="playerTwoScoreLabel" destination="rKS-St-SXt" id="Gme-4B-hBx"/>
+                        <outlet property="row1Label1" destination="bTS-lQ-Mro" id="lC0-HS-3mT"/>
+                        <outlet property="row1Label2" destination="PP9-2Z-SYd" id="mq9-et-jgC"/>
+                        <outlet property="row1Label3" destination="Rip-Sb-CCC" id="CHc-r8-K8P"/>
+                        <outlet property="row2Label1" destination="K9V-r9-Ib9" id="ToZ-Of-reI"/>
+                        <outlet property="row2Label2" destination="qdI-IT-XcP" id="nAi-5q-wJd"/>
+                        <outlet property="row2Label3" destination="cwE-t2-bTN" id="jBO-wX-K8p"/>
+                        <outlet property="row3Label1" destination="efY-Tq-Xwa" id="2f2-0B-RrC"/>
+                        <outlet property="row3Label2" destination="rb4-bW-a1i" id="ZK1-Gq-sd7"/>
+                        <outlet property="row3Label3" destination="CV3-w6-ETp" id="Vb5-jA-SPZ"/>
                         <segue destination="NHA-Zr-NbA" kind="showDetail" identifier="segueToPopUp" id="Lmp-gv-Kz7"/>
                     </connections>
                 </viewController>
@@ -485,47 +485,47 @@
                 <tapGestureRecognizer id="S7w-83-pHo" userLabel="Tap Board1 Gesture Recognizer"/>
                 <tapGestureRecognizer id="i5c-HW-KUJ" userLabel="Tap Board2 Gesture Recognizer">
                     <connections>
-                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="8xi-eg-RBx"/>
+                        <action selector="cellTapped:" destination="BYZ-38-t0r" id="2g7-Qe-Mhm"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="KLX-MW-3zH" userLabel="Tap Board3 Gesture Recognizer">
                     <connections>
-                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="GOv-kD-NCQ"/>
+                        <action selector="cellTapped:" destination="BYZ-38-t0r" id="iaT-c6-fl2"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="5nN-Uo-q16" userLabel="Tap Board4 Gesture Recognizer">
                     <connections>
-                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="nGX-oM-L6G"/>
+                        <action selector="cellTapped:" destination="BYZ-38-t0r" id="1bi-oQ-lQN"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="DS2-W0-70z" userLabel="Tap Board5 Gesture Recognizer">
                     <connections>
-                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="8uZ-Vg-vDU"/>
+                        <action selector="cellTapped:" destination="BYZ-38-t0r" id="n6q-oR-7nk"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="seA-KB-WPY" userLabel="Tap Board6 Gesture Recognizer">
                     <connections>
-                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="JjS-lW-xVf"/>
+                        <action selector="cellTapped:" destination="BYZ-38-t0r" id="Gwm-yL-IY7"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="wqy-hJ-weo" userLabel="Tap Board7 Gesture Recognizer">
                     <connections>
-                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="KWz-2p-P6D"/>
+                        <action selector="cellTapped:" destination="BYZ-38-t0r" id="Ycz-8X-RBb"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="rcA-Be-JoH" userLabel="Tap Board8 Gesture Recognizer">
                     <connections>
-                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="ox1-qo-jib"/>
+                        <action selector="cellTapped:" destination="BYZ-38-t0r" id="Qr4-oI-5D8"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="zNy-cs-awj" userLabel="Tap Board9 Gesture Recognizer">
                     <connections>
-                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="OaU-C5-laT"/>
+                        <action selector="cellTapped:" destination="BYZ-38-t0r" id="lRC-Mi-Bpe"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="7hn-OH-ZYD">
                     <connections>
-                        <action selector="boardTapped:" destination="BYZ-38-t0r" id="PDU-7m-XbL"/>
+                        <action selector="cellTapped:" destination="BYZ-38-t0r" id="6vc-Ri-Qua"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

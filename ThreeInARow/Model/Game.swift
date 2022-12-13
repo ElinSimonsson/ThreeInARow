@@ -1,15 +1,15 @@
 
 
 class Game {
+    
     private var players = [Player]()
-    private var boards = [Board]()
-    private var clickedBoards = [Board]()
-    var checkBoardIsNotEmpty = false
+    private var cells = [Cell]()
+    private var usedCells = [Cell]()
+    var checkCellIsNotEmpty = false
     var playerOneWin = false
     var playerTwoWin = false
     var gameover = false
     var playingTowardsComputer = false //default
-    var player1Turn = true
     
     enum Turn {
         case p1
@@ -19,61 +19,60 @@ class Game {
     var firstTurn = Turn.p1
     var currentTurn = Turn.p1
     
-    func clearClickedBoards () {
-        clickedBoards.removeAll()
+    func clearUsedCells () {
+        usedCells.removeAll()
     }
 
-    func randomEmptyBoard () -> Int {
-        if boards.count == clickedBoards.count {
+    func randomEmptyCell () -> Int {
+        if cells.count == usedCells.count {
             gameover = true
             return 0
         }
-        var board : Board?
-        let countBoards = boards.count
+        var cell : Cell?
+        let countCells = cells.count
         repeat {
-            let random = Int.random(in: 0..<countBoards)
-            board = boards[random]
-            if let board = board {
-                checkBoardIsNotEmpty = checkContainsClickedBoards(clickedBoard: board)
+            let random = Int.random(in: 0..<countCells)
+            cell = cells[random]
+            if let cell = cell {
+                checkCellIsNotEmpty = checkContainsUsedCells(usedCell: cell)
             }
-        } while checkBoardIsNotEmpty
-        if let newBoard = board {
-            clickedBoards.append(newBoard)
-            player1Turn = true
+        } while checkCellIsNotEmpty
+        if let newCell = cell {
+            usedCells.append(newCell)
             currentTurn = Turn.p1
         }
-        return board?.rowAndColumn ?? 0
+        return cell?.rowAndColumn ?? 0
     }
     
-    func checkContainsClickedBoards (clickedBoard: Board ) -> Bool {
-        for board in clickedBoards {
-            if board.rowAndColumn == clickedBoard.rowAndColumn {
+    func checkContainsUsedCells (usedCell: Cell ) -> Bool {
+        for cell in usedCells {
+            if cell.rowAndColumn == usedCell.rowAndColumn {
                 return true
             }
         }
         return false
     }
     
-    func checkIfAllBoardIsNotEmpty() -> Bool {
+    func checkIfBoardIsNotEmpty() -> Bool {
         if playerOneWin == false && playerTwoWin == false {
-            return clickedBoards.count == boards.count
+            return usedCells.count == cells.count
         }
         return false
     }
     
-    func initBoards () {
-        boards.append(Board(rowAndColumn: 11))
-        boards.append(Board(rowAndColumn: 12))
-        boards.append(Board(rowAndColumn: 13))
-        boards.append(Board(rowAndColumn: 21))
-        boards.append(Board(rowAndColumn: 22))
-        boards.append(Board(rowAndColumn: 23))
-        boards.append(Board(rowAndColumn: 31))
-        boards.append(Board(rowAndColumn: 32))
-        boards.append(Board(rowAndColumn: 33))
+    func initCells () {
+        cells.append(Cell(rowAndColumn: 11))
+        cells.append(Cell(rowAndColumn: 12))
+        cells.append(Cell(rowAndColumn: 13))
+        cells.append(Cell(rowAndColumn: 21))
+        cells.append(Cell(rowAndColumn: 22))
+        cells.append(Cell(rowAndColumn: 23))
+        cells.append(Cell(rowAndColumn: 31))
+        cells.append(Cell(rowAndColumn: 32))
+        cells.append(Cell(rowAndColumn: 33))
     }
     
-    func makeTurn (board: Board) {
+    func makeTurn (cell: Cell) {
         if playingTowardsComputer {
             if currentTurn == Turn.p1 {
                 currentTurn = Turn.p2
@@ -85,7 +84,7 @@ class Game {
                 currentTurn = Turn.p1
             }
         }
-        clickedBoards.append(board)
+        usedCells.append(cell)
     }
     
     func deleteAllPlayers () {
@@ -109,23 +108,26 @@ class Game {
             return players.count
         }
     
-    func checkIfThreeRow (playerOne: Player, playerTwo: Player, playerSymbol symbol: Character, label1 board1: String, label2 board2: String, label3 board3: String,
-                                 label4 board4: String, label5 board5: String, label6 board6: String,
-                          label7 board7: String, label8 board8: String, label9 board9: String) -> Bool {
+    func checkForWin (playerOne: Player, playerTwo: Player, playerSymbol symbol: Character, row1Lab1 row1C1: String, row1Lab2 row1C2: String, row1Lab3 row1C3: String, row2Lab1 row2C1: String, row2Lab2 row2C2: String, row2Lab3 row2C3: String,
+                          row3Lab1 row3C1: String, row3Lab2 row3C2: String, row3Lab3 row3C3: String) -> Bool {
 
         let symbolAsString = String(symbol)
         
-        if board1 == symbolAsString && board2 == symbolAsString && board3 == symbolAsString ||
-            board1 == symbolAsString && board4 == symbolAsString && board7 == symbolAsString ||
-            board1 == symbolAsString && board5 == symbolAsString && board9 == symbolAsString ||
-            board4 == symbolAsString && board5 == symbolAsString && board6 == symbolAsString ||
-            board7 == symbolAsString && board8 == symbolAsString && board9 == symbolAsString ||
-            board2 == symbolAsString && board5 == symbolAsString && board8 == symbolAsString ||
-            board3 == symbolAsString && board6 == symbolAsString && board9 == symbolAsString ||
-            board3 == symbolAsString && board5 == symbolAsString && board7 == symbolAsString {
+        // C = column
+        if row1C1 == symbolAsString && row1C2 == symbolAsString && row1C3 == symbolAsString ||
+            row1C1 == symbolAsString && row2C1 == symbolAsString && row3C1 == symbolAsString ||
+            row1C1 == symbolAsString && row2C2 == symbolAsString && row3C3 == symbolAsString ||
+            row2C1 == symbolAsString && row2C2 == symbolAsString && row2C3 == symbolAsString ||
+            row3C1 == symbolAsString && row3C2 == symbolAsString && row3C3 == symbolAsString ||
+            row1C2 == symbolAsString && row2C2 == symbolAsString && row3C2 == symbolAsString ||
+            row1C3 == symbolAsString && row2C3 == symbolAsString && row3C3 == symbolAsString ||
+            row1C3 == symbolAsString && row2C2 == symbolAsString && row3C1 == symbolAsString {
+            
             if playerOne.symbol == symbol {
+                print("playerOne win")
                 playerOneWin = true
             } else if playerTwo.symbol == symbol {
+                print("playerTwo win")
                 playerTwoWin = true
             }
             gameover = true
@@ -143,11 +145,10 @@ class Game {
     }
     
     func restartGame () {
-        clickedBoards.removeAll()
+        usedCells.removeAll()
         playerOneWin = false
         playerTwoWin = false
         gameover = false
-        player1Turn = true
         
         if firstTurn == Turn.p1 {
             firstTurn = Turn.p2
