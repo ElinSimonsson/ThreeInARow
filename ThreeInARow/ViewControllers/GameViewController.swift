@@ -56,10 +56,6 @@ class GameViewController: UIViewController, CallBack {
             playerTwoNameLabel.text = playerTwoName
         }
         
-        let screenSize = UIScreen.main.bounds
-        let imageView = UIImageView(frame: screenSize)
-        imageView.image = UIImage(named: "wood_background")
-        
         row1Label1.layer.borderWidth = 1.5
         row1Label2.layer.borderWidth = 1.5
         row1Label3.layer.borderWidth = 1.5

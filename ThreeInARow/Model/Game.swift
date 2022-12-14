@@ -5,7 +5,7 @@ class Game {
     private var players = [Player]()
     private var cells = [Cell]()
     private var usedCells = [Cell]()
-    var checkCellIsNotEmpty = false
+    var checkCellNotEmpty = false
     var playerOneWin = false
     var playerTwoWin = false
     var gameover = false
@@ -34,9 +34,9 @@ class Game {
             let random = Int.random(in: 0..<countCells)
             cell = cells[random]
             if let cell = cell {
-                checkCellIsNotEmpty = checkContainsUsedCells(usedCell: cell)
+                checkCellNotEmpty = checkContainsUsedCells(usedCell: cell)
             }
-        } while checkCellIsNotEmpty
+        } while checkCellNotEmpty
         if let newCell = cell {
             usedCells.append(newCell)
             currentTurn = Turn.p1
@@ -124,10 +124,8 @@ class Game {
             row1C3 == symbolAsString && row2C2 == symbolAsString && row3C1 == symbolAsString {
             
             if playerOne.symbol == symbol {
-                print("playerOne win")
                 playerOneWin = true
             } else if playerTwo.symbol == symbol {
-                print("playerTwo win")
                 playerTwoWin = true
             }
             gameover = true

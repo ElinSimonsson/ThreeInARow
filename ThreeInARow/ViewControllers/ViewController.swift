@@ -45,12 +45,10 @@ class ViewController: UIViewController {
                 }
         game.addPlayer(name: "Player 1", score: 0, symbol: "X")
         game.addPlayer(name: "Computer", score: 0, symbol: "O")
-       // game.checkIfPlayingComputer()
         performSegue(withIdentifier: segueToGame, sender: self)
     }
     
     @IBAction func handleTapTwoPlayer(_ sender: UITapGestureRecognizer) {
-        
         performSegue(withIdentifier: segueToPlayerInfo, sender: self)
     }
     
