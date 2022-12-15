@@ -24,11 +24,6 @@ class PlayerInformationViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         self.scrollView.contentSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height)
-//
-//        scrollView.alwaysBounceVertical = true
-//        scrollView.alwaysBounceHorizontal = false
-        
-      //  scrollView.contentSize = CGSize(width: view.frame.width, height: view.frame.height)
         
         playerOneNameTextField.delegate = self
         playerTwoNameTextField.delegate = self
@@ -39,7 +34,6 @@ class PlayerInformationViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueToGame {
-            
             let destinationVC = segue.destination as? GameViewController
             let playerOne = game.player(index: 0)
             let playerTwo = game.player(index: 1)
@@ -49,7 +43,6 @@ class PlayerInformationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func playBtnPressed(_ sender: UIButton) {
-        
         if game.countPlayers() > 0 {
             game.deleteAllPlayers()
         }
@@ -67,7 +60,6 @@ class PlayerInformationViewController: UIViewController, UITextFieldDelegate {
             playerOneName = playerOneDefaultName
             playerTwoName = playerTwoNameTextField.text ?? playerTwoDefaultName
         }
-        
         game.addPlayer(name: playerOneName, score: 0, symbol: "X")
         game.addPlayer(name: playerTwoName, score: 0, symbol: "O")
         performSegue(withIdentifier: segueToGame, sender: self)
@@ -86,7 +78,6 @@ class PlayerInformationViewController: UIViewController, UITextFieldDelegate {
         default:
             break
         }
-       
         return false
     }
     

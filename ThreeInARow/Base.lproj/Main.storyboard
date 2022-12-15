@@ -185,7 +185,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="1XK-ze-BHC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="name"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your player name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFl-v7-wRy">
                                         <rect key="frame" x="61" y="158" width="271" height="24"/>
@@ -208,7 +208,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player setup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCg-Of-LFg">
-                                        <rect key="frame" x="112" y="49" width="169.66666666666663" height="40"/>
+                                        <rect key="frame" x="111.99999999999999" y="49" width="169.66666666666663" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="5EG-3u-9px"/>
                                         </constraints>
@@ -696,7 +696,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YfD-dr-qWl"/>
+        <segue reference="Kfb-54-JNi"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="frame_picture" width="1200" height="1200"/>

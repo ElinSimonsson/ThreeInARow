@@ -9,7 +9,7 @@ class Game {
     var playerOneWin = false
     var playerTwoWin = false
     var gameover = false
-    var playingTowardsComputer = false //default
+    var playingAgainstComputer = false //default
     
     enum Turn {
         case p1
@@ -22,7 +22,7 @@ class Game {
     func clearUsedCells () {
         usedCells.removeAll()
     }
-
+    
     func randomEmptyCell () -> Int {
         if cells.count == usedCells.count {
             gameover = true
@@ -72,8 +72,8 @@ class Game {
         cells.append(Cell(rowAndColumn: 33))
     }
     
-    func makeTurn (cell: Cell) {
-        if playingTowardsComputer {
+    func makeTurn (usedCell: Cell) {
+        if playingAgainstComputer {
             if currentTurn == Turn.p1 {
                 currentTurn = Turn.p2
             }
@@ -84,7 +84,7 @@ class Game {
                 currentTurn = Turn.p1
             }
         }
-        usedCells.append(cell)
+        usedCells.append(usedCell)
     }
     
     func deleteAllPlayers () {
@@ -105,12 +105,12 @@ class Game {
     }
     
     func countPlayers () -> Int {
-            return players.count
-        }
+        return players.count
+    }
     
     func checkForWin (playerOne: Player, playerTwo: Player, playerSymbol symbol: Character, row1Lab1 row1C1: String, row1Lab2 row1C2: String, row1Lab3 row1C3: String, row2Lab1 row2C1: String, row2Lab2 row2C2: String, row2Lab3 row2C3: String,
-                          row3Lab1 row3C1: String, row3Lab2 row3C2: String, row3Lab3 row3C3: String) -> Bool {
-
+                      row3Lab1 row3C1: String, row3Lab2 row3C2: String, row3Lab3 row3C3: String) -> Bool {
+        
         let symbolAsString = String(symbol)
         
         // C = column
@@ -136,9 +136,9 @@ class Game {
     
     func checkIfPlayingComputer(playerTwo: Player) {
         if playerTwo.name == "Computer" {
-            playingTowardsComputer = true
+            playingAgainstComputer = true
         } else {
-            playingTowardsComputer = false
+            playingAgainstComputer = false
         }
     }
     

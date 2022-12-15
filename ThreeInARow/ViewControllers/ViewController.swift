@@ -16,16 +16,11 @@ class ViewController: UIViewController {
     let segueToPlayerInfo = "twoPlayerSegueToPlayerInfo"
     let segueToGame = "onePlayerSegueToGame"
     let game = Game()
-
+    
     override func viewDidLoad() {
-        
-        
         super.viewDidLoad()
-
-        onePlayerLabel.layer.cornerRadius = 10
-        twoPlayerLabel.layer.cornerRadius = 10
-        onePlayerLabel.layer.masksToBounds = true
-        twoPlayerLabel.layer.masksToBounds = true
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,10 +34,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func handleTapOnePlayer(_ sender: UITapGestureRecognizer) {
-       
         if game.countPlayers() > 0 {
-                    game.deleteAllPlayers()
-                }
+            game.deleteAllPlayers()
+        }
         game.addPlayer(name: "Player 1", score: 0, symbol: "X")
         game.addPlayer(name: "Computer", score: 0, symbol: "O")
         performSegue(withIdentifier: segueToGame, sender: self)

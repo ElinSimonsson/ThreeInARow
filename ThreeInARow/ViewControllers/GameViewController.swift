@@ -28,6 +28,7 @@ class GameViewController: UIViewController, CallBack {
         
         initializeLayout()
         game.initCells()
+        
         if let playerTwo = playerTwo {
             game.checkIfPlayingComputer(playerTwo: playerTwo)
         }
@@ -37,8 +38,8 @@ class GameViewController: UIViewController, CallBack {
         let _ = gameIsRestarted
         game.restartGame()
         restartLayout()
-        if game.playingTowardsComputer {
-            if game.firstTurn == Game.Turn.p2 {
+        if game.playingAgainstComputer {
+            if game.firstTurn == Game.Turn.p2 { // computer´s turn to make a first move
                 computerAddRandomCell()
             }
         }
@@ -105,7 +106,9 @@ class GameViewController: UIViewController, CallBack {
         }
     }
     
-    func findThreeInRowSetGreenBackground(symbol: Character) {
+    // when a player wins, this function searches for which cell has three in row
+    // and changes the background of these cells to green background
+    func threeInRowSetGreenBackground(symbol: Character) {
         let symbolStr = String(symbol)
         if row1Label1.text == symbolStr && row1Label2.text == symbolStr && row1Label3.text == symbolStr {
             row1Label1.backgroundColor = UIColor.green
@@ -175,18 +178,18 @@ class GameViewController: UIViewController, CallBack {
         let checkIfPlayerTwoWins = game.checkForWin(playerOne: playerOne, playerTwo: playerTwo, playerSymbol: playerTwo.symbol, row1Lab1: row1Lab1, row1Lab2: row1Lab2, row1Lab3: row1Lab3, row2Lab1: row2Lab1, row2Lab2: row2Lab2, row2Lab3: row2Lab3, row3Lab1: row3Lab1, row3Lab2: row3Lab2, row3Lab3: row3Lab3)
         
         if checkIfPlayerOneWins {
-            findThreeInRowSetGreenBackground(symbol: playerOne.symbol)
+            threeInRowSetGreenBackground(symbol: playerOne.symbol)
             game.increasePlayerScore(player: playerOne)
-            playerTurnLabel.text = playerOne.name // explain why
+            playerTurnLabel.text = playerOne.name // if player 1 win, the label shall not switch to player 2´s name
             playerOneScoreLabel.text = String (playerOne.score)
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.performSegue(withIdentifier: self.segueToPopUp, sender: self)
             }
             
         } else if checkIfPlayerTwoWins {
-            findThreeInRowSetGreenBackground(symbol: playerTwo.symbol)
+            threeInRowSetGreenBackground(symbol: playerTwo.symbol)
             game.increasePlayerScore(player: playerTwo)
-            playerTurnLabel.text = playerTwo.name // explain why
+            playerTurnLabel.text = playerTwo.name //  if player 2 win, the label shall not switch to player 1´s name
             playerTwoScoreLabel.text = String (playerTwo.score)
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.performSegue(withIdentifier: self.segueToPopUp, sender: self)
@@ -212,13 +215,13 @@ class GameViewController: UIViewController, CallBack {
               let playerTwo = playerTwo else {return}
         
         if game.checkContainsUsedCells(usedCell: cell) == false {
-            if game.playingTowardsComputer {
+            if game.playingAgainstComputer {
                 if game.currentTurn == Game.Turn.p1 {
                     label.textColor = UIColor.blue
                     label.text = String(playerOne.symbol)
                     let playerTwoName = playerTwo.name
                     playerTurnLabel.text = playerTwoName
-                    game.makeTurn(cell: cell)
+                    game.makeTurn(usedCell: cell)
                     computerAddRandomCell()
                 }
             } else {
@@ -227,13 +230,13 @@ class GameViewController: UIViewController, CallBack {
                     label.text = String(playerOne.symbol)
                     let playerTwoName = playerTwo.name
                     playerTurnLabel.text = playerTwoName
-                    game.makeTurn(cell: cell)
+                    game.makeTurn(usedCell: cell)
                 } else if game.currentTurn == Game.Turn.p2 {
                     label.textColor = UIColor.red
                     label.text = String(playerTwo.symbol)
                     let playerOneName = playerOne.name
                     playerTurnLabel.text = playerOneName
-                    game.makeTurn(cell: cell)
+                    game.makeTurn(usedCell: cell)
                 }
             }
         }
